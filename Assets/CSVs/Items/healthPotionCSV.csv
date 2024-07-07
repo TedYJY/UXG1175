@@ -1,0 +1,7 @@
+itemName,type,value
+LesserHealthPotion,health,10
+HealthPotion,health,20
+LargeHealthPotion,health,50
+LesserSpeedPotion,speed,10
+SpeedPotion,speed,20
+LargeSpeedPotion,speed,40
