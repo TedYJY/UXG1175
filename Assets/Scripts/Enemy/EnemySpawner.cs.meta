@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b0dc2c2207f03f44899e4e11f4a3405c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - scoutSO: {fileID: 11400000, guid: d8ba681d8f3cf4642bc3399588040f4d, type: 2}
+  - tankSO: {fileID: 11400000, guid: e373aa783450f174d857662298c21b04, type: 2}
+  - mageSO: {fileID: 11400000, guid: 65b1c938a0fd47443a1dbf9fa612c166, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

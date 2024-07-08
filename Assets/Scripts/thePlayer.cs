@@ -22,6 +22,9 @@ public class thePlayer : MonoBehaviour
     public GameObject[] meleeWeapons;
     public GameObject[] rangedWeapons;
 
+    private bool iFrameStatus;
+    private float iFrameDuration;
+
 
 
     void Start()
@@ -41,16 +44,10 @@ public class thePlayer : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         
-        string tag = collision.gameObject.tag;
-
-        if (tag == "Enemy")
-        {
-            TakeDamage();
-        }
-        else if (tag == "MeleeWeapons2")
+        if (tag == "MeleeWeapons2")
         {
             theWeapon = collision.GetComponent<weaponPickUp>();
 
@@ -68,11 +65,12 @@ public class thePlayer : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Move();
     }
 
+    //Input Manager
     void InputManagement()
     {
         
@@ -82,6 +80,7 @@ public class thePlayer : MonoBehaviour
         moveDir = new Vector2(xAxis, yAxis).normalized;
     }
 
+    //Movement
     void Move()
     {
        
@@ -89,16 +88,40 @@ public class thePlayer : MonoBehaviour
             
     }
 
-    void TakeDamage()
+
+
+    //Damage taken by Player
+    void TakeDamage(int dmgAmt)
     {
-        if (HP >= 0)
+        if (iFrameStatus == false)
         {
-            HP -= 1;
+            //Reduce HP by dmgAmt
+            HP -= dmgAmt;
+
+            //Checks if HP has hit 0, sets to 0 to prevent negative values from showing and does Game Over function
+            if (HP <= 0)
+            {
+                HP = 0;
+                //GameOver();
+            }
+
+            //Updates UI of HP
+            //UIUpdate();
+
+            //Activates iFrames to prevent multiple hits
+            //Debug.Log("iFrames activated!");
+            iFrameStatus = true;
+
+            //Deactivates iFrame after certain amount of time
+            Invoke("iFrameCountdown", iFrameDuration);
+
         }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+    }
+
+    void iFrameCountdown()
+    {
+        //Debug.Log("iFrames deactivated!");
+        iFrameStatus = false;
     }
 
    

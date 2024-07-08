@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-public class CSVtoSO : MonoBehaviour
+public class ItemsCSVtoSO : MonoBehaviour
 {
     private static string weaponCSVPath = "/CSVs/itemCSVs.csv"; // tell editor where file is
     private static string potionsCSVPath = "/CSVs/healthPotionCSV.csv";

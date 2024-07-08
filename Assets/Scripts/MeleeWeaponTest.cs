@@ -15,7 +15,7 @@ public class MeleeWeaponTest : MonoBehaviour
     public Sprite theSprite;*/
 
     MeleeWeapons meleeWeapons;
-    EnemyMovement theEnemy;
+    Enemy theEnemy;
 
     [SerializeField]
     private MeleeWeapons weapon;
