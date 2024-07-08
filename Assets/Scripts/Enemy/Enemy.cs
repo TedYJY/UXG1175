@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         this.GetComponent<CircleCollider2D>().radius = atkRange;
     }
 
-    void Update()
+void Update()
     {
         if (foundPlayer == false) //If player has not been found by search radius
         {
@@ -156,12 +156,12 @@ public class Enemy : MonoBehaviour
 
     void AttackMelee()
     {
-
+        player.GetComponent<thePlayer>().TakeDamage(atkDamage);
     }
 
     void AttackRanged()
     {
-
+        //Shoot ranged projectiles
     }
 
     public void TakeDamage(int damage)

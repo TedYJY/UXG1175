@@ -47,7 +47,7 @@ public class thePlayer : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (tag == "MeleeWeapons2")
+        if (collision.tag == "MeleeWeapons2")
         {
             theWeapon = collision.GetComponent<weaponPickUp>();
 
@@ -56,7 +56,7 @@ public class thePlayer : MonoBehaviour
             meleeWeapons[1].SetActive(true);
             theWeapon.RemoveItem();
         }
-        else if (tag == "healthPotion")
+        else if (collision.tag == "healthPotion")
         {
             theWeapon = collision.GetComponent<weaponPickUp>();
             HP += theWeapon.HealingPotion();
@@ -91,7 +91,7 @@ public class thePlayer : MonoBehaviour
 
 
     //Damage taken by Player
-    void TakeDamage(int dmgAmt)
+    public void TakeDamage(int dmgAmt)
     {
         if (iFrameStatus == false)
         {

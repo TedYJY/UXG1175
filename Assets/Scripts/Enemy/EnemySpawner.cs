@@ -27,9 +27,14 @@ public class EnemySpawner : MonoBehaviour
         enemyScript.health = enSO.enemyHP;
         enemyScript.atkRange = enSO.enemyRange;
         enemyScript.atkClass = enSO.enemyClass;
+
+        //Set spawned enemy to instantly go after player
         enemyScript.foundPlayer = true;
 
         //Set Sprite
         spawnedEnemy.GetComponent<SpriteRenderer>().sprite = enSO.enemySprite;
+
+        //Set Name
+        spawnedEnemy.name = enemyName;
     }
 }

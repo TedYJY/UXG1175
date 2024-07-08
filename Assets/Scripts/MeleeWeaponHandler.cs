@@ -15,7 +15,7 @@ public class MeleeWeaponHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Enemy theEnemy = collision.GetComponent<Enemy>();
-            // Debug.Log($"Dealing {weapon.damageOutput} damage to enemy");
+            Debug.Log($"Dealing {weapon.damageOutput} damage to enemy");
             theEnemy.TakeDamage(weapon.damageOutput);
         }
     }
