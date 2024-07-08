@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - MeleeWeapons2
   - healthPotion
+  - SpawnHandler
   layers:
   - Default
   - TransparentFX

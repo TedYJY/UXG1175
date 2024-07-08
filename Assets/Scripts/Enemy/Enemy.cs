@@ -7,16 +7,16 @@ public class Enemy : MonoBehaviour
 {
     private GameObject player; //For accessing scripts, and referencing
     public float moveSpeed; //Speed of enemy
-    public int atkDamage { get; set; } //Damage of enemy attack
-    public float health { get; set; } //Health of enemy
-    public float atkRange { get; set; } //Range of enemy attack
-    public string atkClass { get; set; } //Class of enemy
+    public int atkDamage; //Damage of enemy attack
+    public float health; //Health of enemy
+    public float atkRange; //Range of enemy attack
+    public string atkClass; //Class of enemy
 
     [Header("Searching Variables")]
     [SerializeField]
     private float searchRadius = 5f; //Search radius of the enemy, if player enters this radius, the enemy starts hunting
 
-    private bool foundPlayer; //Whether enemy has found player, to stop roaming and start hunting
+    public bool foundPlayer; //Whether enemy has found player, to stop roaming and start hunting
 
     [Header("Roaming Variables")]
     [SerializeField]
@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     private bool changeRoam; //Allows changing of randomRoam
 
     private bool movementAllowed; //If enemy is able to move
+
+    private bool attackAble; //If enemy is able to attack
 
     void Start()
     {
@@ -55,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     void Hunt()
     {
-        if (movementAllowed) //Checks if enemy is able to move
+        if (movementAllowed  == true) //Checks if enemy is able to move
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime); //Starts moving towards player
         }
@@ -115,17 +117,27 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "player")
+        if (col.tag == "Player")
         {
             StopMovement();
-            AttemptAttack();
         }
     }
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.tag == "player")
+        if (col.tag == "Player")
         {
             StartMovement();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            if (attackAble == true)
+            {
+                AttemptAttack();
+            }
         }
     }
 

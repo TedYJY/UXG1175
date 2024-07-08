@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d644e52d23df8d74ebeccf003124e621, type: 3}
-  m_Name: Tank
+  m_Name: Scout
   m_EditorClassIdentifier: 
-  enemyName: Tank
-  enemyHP: 8
+  enemyName: Scout
+  enemyHP: 2
   enemyDMG: 1
-  enemyMoveSpeed: 0.5
+  enemyMoveSpeed: 1.25
   enemyRange: 1
   enemyClass: Melee
-  enemySprite: {fileID: 1322458365, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  enemySprite: {fileID: -943592342, guid: c405f86b031d72544a4edc06d728b241, type: 3}
