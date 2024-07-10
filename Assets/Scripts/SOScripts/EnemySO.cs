@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySO : ScriptableObject
 {
+    public string enemyID;
     public string enemyName;
     public int enemyHP;
     public int enemyDMG;

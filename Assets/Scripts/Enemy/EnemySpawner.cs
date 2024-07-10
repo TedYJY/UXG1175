@@ -12,10 +12,10 @@ public class EnemySpawner : MonoBehaviour
     private GameObject enemyTemplate;
     private GameObject spawnedEnemy;
 
-    public void SpawnEnemy(string enemyName, Vector2 spawnLoc)
+    public void SpawnEnemy(string enemyID, Vector2 spawnLoc)
     {
         //Change the SO to the given one
-        enSO = Resources.Load<EnemySO>(enemyName);
+        enSO = Resources.Load<EnemySO>(enemyID);
 
         //Spawn Enemy
         spawnedEnemy = Instantiate(enemyTemplate, spawnLoc, Quaternion.identity);
@@ -35,6 +35,6 @@ public class EnemySpawner : MonoBehaviour
         spawnedEnemy.GetComponent<SpriteRenderer>().sprite = enSO.enemySprite;
 
         //Set Name
-        spawnedEnemy.name = enemyName;
+        spawnedEnemy.name = enSO.enemyName;
     }
 }

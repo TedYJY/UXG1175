@@ -1,11 +1,61 @@
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEngine.Rendering;
 
 public class EnemyWaveHandler : MonoBehaviour
 {
+    private static string CSVpath = "/Editor/CSV/enemyWaves.csv";
     private GameObject spawnHandler;
     private EnemySpawner spawner;
+
+    public int lvl = 1;
+    private string[][] currentlvl;
+    private List<string[]> lvl1 = new List<string[]>();
+    private List<string[]> lvl2 = new List<string[]>();
+
+    private string[] splitLines;
+    private string[] splitEnemies;
+
+
+    void Awake()
+    {
+        string[] allLines = File.ReadAllLines(Application.dataPath + CSVpath);
+
+        //Loops through the String of allLines, skipping past first and last line (First line is the headers, bottom line CSV leaves a blank line by default)
+        for (int i = 1; i < allLines.Length; i++)
+        {
+
+            //Seperates into new Strings using the comma (',') delimiter
+            splitLines = allLines[i].Split(new char[] { ',' });
+
+            //Checks if all data entries are filled
+            if (splitLines.Length != 3)
+            {
+                Debug.Log(allLines[i] + " does not have all 3 values!");
+
+                //Returns back if all data entries are not filled for "Mental Stability" purposes
+                return;
+            }
+
+            switch (splitLines[1])
+                {
+                    case "1":
+                        lvl1.Add(splitLines);
+                        break;
+
+                    case "2":
+                        lvl2.Add(splitLines);
+                        break;
+
+                    default:
+                        break;
+                }
+
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -17,20 +67,49 @@ public class EnemyWaveHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            spawner.SpawnEnemy("Scout", new Vector2(0, 0));
+            BeginWaves();
         }
 
-        else if (Input.GetKeyDown(KeyCode.O))
+    }
+
+    public void BeginWaves()
+    {
+        switch (lvl)
         {
-            spawner.SpawnEnemy("Tank", new Vector2(0, 0));
+            case 1:
+                currentlvl = lvl1.ToArray();
+                break;
+
+            case 2:
+                currentlvl = lvl2.ToArray();
+                break;
+
+            default:
+                break;
         }
 
-        else if (Input.GetKeyDown(KeyCode.P))
+        //Loop through currentlvl to seperate waves
+        for (int i = 0; i < currentlvl.Length; i++)
         {
-            spawner.SpawnEnemy("Mage", new Vector2(0, 0));
+            //Split currentlvl[i] into an array where each entry contains enemyID#amount
+            string[] combinedEnemies = currentlvl[i][2].Split(new char[] { '!' });
+
+            //split splitEnemies into an array where 0 is enemy type and 1 is enemy amount
+            for (int y = 0; y < combinedEnemies.Length; y++)
+            {
+                splitEnemies = combinedEnemies[y].Split(new char[] { '#' });
+                Debug.Log(splitEnemies[0] + splitEnemies[1]);
+
+                for (int x = 0; x < int.Parse(splitEnemies[1]); x++)
+                {
+                    spawner.SpawnEnemy(splitEnemies[0], new Vector2(0, 0));
+                }
+            }
+
         }
+
     }
 
 }

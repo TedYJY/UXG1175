@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d644e52d23df8d74ebeccf003124e621, type: 3}
-  m_Name: Scout
+  m_Name: enemy1
   m_EditorClassIdentifier: 
+  enemyID: enemy1
   enemyName: Scout
   enemyHP: 2
   enemyDMG: 1

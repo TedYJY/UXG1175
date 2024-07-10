@@ -26,9 +26,9 @@ public class EnemyCSVtoSO
 
 
             //Checks if all data entries are filled
-            if(splitLines.Length != 7)
+            if(splitLines.Length != 8)
             {
-                Debug.Log(allLines[i] + " does not have all 6 values!");
+                Debug.Log(allLines[i] + " does not have all 8 values!");
 
                 //Returns back if all data entries are not filled for "Mental Stability" purposes
                 return;
@@ -38,22 +38,23 @@ public class EnemyCSVtoSO
             EnemySO enemy = ScriptableObject.CreateInstance<EnemySO>();
 
             //Passes data from CSV into the SO
-            enemy.enemyName = splitLines[0];
-            enemy.enemyHP = int.Parse(splitLines[1]);
-            enemy.enemyDMG = int.Parse(splitLines[2]);
-            enemy.enemyMoveSpeed = float.Parse(splitLines[3]);
-            enemy.enemyRange = float.Parse(splitLines[4]);
-            enemy.enemyClass = splitLines[5];
+            enemy.enemyID = splitLines[0];
+            enemy.enemyName = splitLines[1];
+            enemy.enemyHP = int.Parse(splitLines[2]);
+            enemy.enemyDMG = int.Parse(splitLines[3]);
+            enemy.enemyMoveSpeed = float.Parse(splitLines[4]);
+            enemy.enemyRange = float.Parse(splitLines[5]);
+            enemy.enemyClass = splitLines[6];
 
             //Uses resources.load to get the entire spritesheet
             Sprite[] sprites = Resources.LoadAll<Sprite>("tilemap_packed");
 
             //Uses number in CSV to get specific sprite
-            enemy.enemySprite = sprites[int.Parse(splitLines[6])];
+            enemy.enemySprite = sprites[int.Parse(splitLines[7])];
 
             //Creates a new SO using AssetDatabase CreateAsset function
             //Ensure that there is a folder under Assets labelled "Enemies", else an error will show up
-            AssetDatabase.CreateAsset(enemy, $"Assets/ScriptableObjects/Enemies/Resources/{enemy.enemyName}.asset");
+            AssetDatabase.CreateAsset(enemy, $"Assets/ScriptableObjects/Enemies/Resources/{enemy.enemyID}.asset");
         }
 
         //Saves the created assets
