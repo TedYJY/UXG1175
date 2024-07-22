@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b89cbf7ad8b324c80156ed8a752306, type: 3}
+  m_Script: {fileID: 11500000, guid: 80f5860bc6ac63745b0f46d3e9fb45ea, type: 3}
   m_Name: meleeItem1
   m_EditorClassIdentifier: 
+  weaponID: 3001
   itemName: meleeItem1
-  rotationSpeed: 277
+  speed: 277
   damageOutput: 30
+  coolDown: 0
+  type: meleeActive
+  sprites: {fileID: 0}
+  spriteID: 103

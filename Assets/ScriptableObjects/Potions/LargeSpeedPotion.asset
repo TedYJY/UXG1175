@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f36ef634534b4468fc3cd849adc768, type: 3}
   m_Name: LargeSpeedPotion
   m_EditorClassIdentifier: 
+  itemID: 1203
   itemName: LargeSpeedPotion
   type: speed
-  value: 40
+  value: 5
+  duration: 8
+  sprite: 0

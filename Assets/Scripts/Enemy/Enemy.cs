@@ -156,7 +156,7 @@ void Update()
 
     void AttackMelee()
     {
-        player.GetComponent<thePlayer>().TakeDamage(atkDamage);
+      //  player.GetComponent<thePlayer>().TakeDamage(atkDamage);
     }
 
     void AttackRanged()

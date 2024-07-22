@@ -48,7 +48,7 @@ public class cameraMovement : MonoBehaviour
 
             transform.position = Vector3.Lerp(transform.position,targetPosition, smooth); 
 
-           // target.position + offset
+          
         }
     }
 }
