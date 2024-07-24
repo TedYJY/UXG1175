@@ -48,7 +48,7 @@ public class CharacterManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("GameScene");
     }
 
     private void UpdateCharacter(int selectedOption)
