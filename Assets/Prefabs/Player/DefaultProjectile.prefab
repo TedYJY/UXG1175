@@ -49,9 +49,9 @@ MonoBehaviour:
   defaultWeapon: {fileID: 11400000, guid: 5ff9b155cbdf6da4ebf6dd25fb7f8529, type: 2}
   Player: {fileID: 0}
   theSprite: {fileID: 7711833345171397574}
-  damage: 25
-  speed: 25
-  defaultCooldown: 25
+  damage: 0
+  speed: 0
+  defaultCooldown: 0
   assignedSprite: {fileID: -755386875, guid: c405f86b031d72544a4edc06d728b241, type: 3}
   startingDamage: 0
   startingSpeed: 0

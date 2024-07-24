@@ -41,8 +41,8 @@ public class DefaultWeaponScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //reset values
-       
+        
+        //ResetInc(); // abit jank
 
         isLevelingUp = false;
 
@@ -111,9 +111,9 @@ public class DefaultWeaponScript : MonoBehaviour
 
     public void GetIncrements(int damageInc, int speedInc, int cooldownInc) // Get data to increment
     {
-        dmgInc = damageInc;
-        spInc = speedInc;
-        cdInc = cooldownInc;
+        dmgInc += damageInc;
+        spInc += speedInc;
+        cdInc += cooldownInc;
 
         GiveDamage(startingDamage, dmgInc);
     }
@@ -126,28 +126,36 @@ public class DefaultWeaponScript : MonoBehaviour
 
     }
 
-
-    /*public void ApplyUpgrade()
+    public void ResetInc()
     {
-        Debug.Log("Applying Upgrades");
-        // Applying the increments
-        damage += dmgInc;
-        speed += spInc;
-        defaultCooldown += cdInc;
+        //reset values
+        dmgInc = 0;
+        spInc = 0;
+        cdInc = 0;
+    }
 
-        // Access the sprite renderer and update color
-        SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            Color currentColor = spriteRenderer.color;
-            currentColor.r = Mathf.Clamp(currentColor.r + 0.1f, 0, 1); // Increase red component
-            spriteRenderer.color = currentColor;
-        }
-        else
-        {
-            Debug.LogError("SpriteRenderer component is missing on theSprite.");
-        }
-    }*/
+
+    /* public void ApplyUpgrade()
+     {
+         Debug.Log("Applying Upgrades");
+         // Applying the increments
+         damage += dmgInc;
+         speed += spInc;
+         defaultCooldown += cdInc;
+
+         // Access the sprite renderer and update color
+         SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
+         if (spriteRenderer != null)
+         {
+             Color currentColor = spriteRenderer.color;
+             currentColor.r = Mathf.Clamp(currentColor.r + 0.1f, 0, 1); // Increase red component
+             spriteRenderer.color = currentColor;
+         }
+         else
+         {
+             Debug.LogError("SpriteRenderer component is missing on theSprite.");
+         }
+     }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

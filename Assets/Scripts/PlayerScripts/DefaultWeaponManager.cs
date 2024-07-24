@@ -37,9 +37,9 @@ public class DefaultWeaponManager : MonoBehaviour
         int speedIncrement = Mathf.Max(1, Mathf.RoundToInt(floatSpeedIncrement));
 
 
-        weaponDamage += damageIncrement;
-        weaponSpeed += speedIncrement;
-        weaponCooldown += coolDownIncrement;
+        weaponDamage = damageIncrement;
+        weaponSpeed = speedIncrement;
+        weaponCooldown = coolDownIncrement;
 
         theMainDefaultWeapon.GetIncrements(weaponDamage,weaponSpeed,weaponCooldown);
     }

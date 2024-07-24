@@ -530,11 +530,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1735781307 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7711833345171397574, guid: 3ee899146e015b84cb3aa964a3a464e0, type: 3}
-  m_PrefabInstance: {fileID: 9076597418469836554}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1851085456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4642139926912547280, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
@@ -1041,7 +1036,7 @@ PrefabInstance:
     - target: {fileID: 6742579480143252780, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
       propertyPath: defaultWeaponPrefab
       value: 
-      objectReference: {fileID: 1735781307}
+      objectReference: {fileID: 7711833345171397574, guid: 3ee899146e015b84cb3aa964a3a464e0, type: 3}
     - target: {fileID: 8530474688602129331, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
       propertyPath: projectileTemplate
       value: 
