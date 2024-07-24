@@ -409,9 +409,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c0c1b1ab75c8044bc1a1ba713db098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1851085456}
-  speed: 3
+  moveSpeed: 0
+  atkDamage: 0
   health: 100
+  atkRange: 0
+  atkClass: 
+  searchRadius: 5
+  foundPlayer: 0
+  roamTimer: 4
+  roamRadius: 1.5
 --- !u!212 &1710032225
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -623,18 +629,22 @@ PrefabInstance:
     - target: {fileID: 6744705339984431736, guid: 379819bdd864a82418e43c3cc120520d, type: 3}
       propertyPath: projectileWeaponList.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 3f683cd8718b19d408afa2bd19886c73, type: 2}
+      objectReference: {fileID: 11400000, guid: 9023c83cc8955ff428837336e7019b3c, type: 2}
     - target: {fileID: 6744705339984431736, guid: 379819bdd864a82418e43c3cc120520d, type: 3}
       propertyPath: projectileWeaponList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 9023c83cc8955ff428837336e7019b3c, type: 2}
+      objectReference: {fileID: 11400000, guid: fb170d8c5444a47498dc8e527faa55c5, type: 2}
     - target: {fileID: 6744705339984431736, guid: 379819bdd864a82418e43c3cc120520d, type: 3}
       propertyPath: projectileWeaponList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: fb170d8c5444a47498dc8e527faa55c5, type: 2}
+      objectReference: {fileID: 11400000, guid: 3f683cd8718b19d408afa2bd19886c73, type: 2}
     - target: {fileID: 7137010060227732102, guid: 379819bdd864a82418e43c3cc120520d, type: 3}
       propertyPath: m_Name
       value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386864770122875789, guid: 379819bdd864a82418e43c3cc120520d, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -703,6 +713,10 @@ PrefabInstance:
     - target: {fileID: 6954956174601159896, guid: 85f63e2acebb7c74398e1067d734109a, type: 3}
       propertyPath: m_Name
       value: HealthPotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080057538166939293, guid: 85f63e2acebb7c74398e1067d734109a, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -941,6 +955,10 @@ PrefabInstance:
       propertyPath: sceneCamera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4209355400725821584, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4642139926912547280, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.78
@@ -981,15 +999,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6934839762775384428, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7438727248960823968, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
     - target: {fileID: 8530474688602129331, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
       propertyPath: projectileTemplate
       value: 
       objectReference: {fileID: 173395506}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9066530944794782282, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1049,6 +1072,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7741205020255012893, guid: bef1dfeda435a4b44881d50eb3d55311, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 8250958440083190033, guid: bef1dfeda435a4b44881d50eb3d55311, type: 3}
       propertyPath: potions
       value: 
@@ -1056,7 +1083,7 @@ PrefabInstance:
     - target: {fileID: 8250958440083190033, guid: bef1dfeda435a4b44881d50eb3d55311, type: 3}
       propertyPath: weapons
       value: 
-      objectReference: {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1108,6 +1135,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5860666191492100857, guid: eb81fe4ab601cef429035fa5337160cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522604124909023588, guid: eb81fe4ab601cef429035fa5337160cb, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7932504632649072069, guid: eb81fe4ab601cef429035fa5337160cb, type: 3}
@@ -1361,6 +1392,10 @@ PrefabInstance:
     - target: {fileID: 4965590338684414638, guid: bebdd0a07951d1c438b4bfb9d525a74d, type: 3}
       propertyPath: m_Name
       value: PassiveProjectilePickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142799941614072931, guid: bebdd0a07951d1c438b4bfb9d525a74d, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

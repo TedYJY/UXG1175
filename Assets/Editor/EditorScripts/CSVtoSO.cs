@@ -177,7 +177,7 @@ public class CSVtoSO : MonoBehaviour
             thePlayer.startingLevel = int.Parse(splitData[4]);
             thePlayer.maxLevel = int.Parse(splitData[5]);
             thePlayer.startingExp = int.Parse(splitData[6]);
-            thePlayer.expLevelUp = int.Parse(splitData[7]);
+            thePlayer.expToLevelUp = int.Parse(splitData[7]);
             thePlayer.expMultiplier = float.Parse(splitData[8]);
             thePlayer.sprite = getSprite(int.Parse(splitData[9]));
 
