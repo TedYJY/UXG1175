@@ -18,5 +18,5 @@ MonoBehaviour:
   damageOutput: 5
   coolDown: 0
   type: meleePassive
-  sprites: {fileID: 0}
+  sprites: {fileID: -1948919581, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
   spriteID: 106

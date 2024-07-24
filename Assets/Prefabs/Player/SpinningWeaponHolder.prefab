@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 1899925713, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  m_Sprite: {fileID: -1948919581, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f32429ba396374888e40912d38e62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 5dc587f7a7a7cc64695fd8f0e53b2ab0, type: 2}
 --- !u!61 &377232339147602362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1388073385053384877}
-  - component: {fileID: 5506640000028661394}
+  - component: {fileID: 285814045218535263}
   m_Layer: 3
   m_Name: SpinningWeaponHolder
   m_TagString: Weapon
@@ -209,7 +209,7 @@ Transform:
   - {fileID: 1926870706606458289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5506640000028661394
+--- !u!114 &285814045218535263
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,10 +221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a05e9e07dd5c1a4b81cfd16639f41aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons: {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}
+  weapons: {fileID: 11400000, guid: 224c20a29c13da248ab53a8dbd606012, type: 2}
   meleeWeaponsList:
-  - {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
-  - {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}
-  - {fileID: 11400000, guid: a3be2a1f92e52cd4381df489d8690eb3, type: 2}
+  - {fileID: 11400000, guid: 37e7cb34c51f13f40ab3097ea3a3e6ca, type: 2}
+  - {fileID: 11400000, guid: 5dc587f7a7a7cc64695fd8f0e53b2ab0, type: 2}
+  - {fileID: 11400000, guid: 224c20a29c13da248ab53a8dbd606012, type: 2}
   theSprite: {fileID: 1219502146961026285}
   isAccessed: 0

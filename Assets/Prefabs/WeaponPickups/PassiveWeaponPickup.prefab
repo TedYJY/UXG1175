@@ -49,7 +49,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 832
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -140,11 +140,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3437012593276289115}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb744d7ea5e96bf4a91fc01566a9fb27, type: 3}
+  m_Script: {fileID: 11500000, guid: ba06c52f6f7c5aa4db28bbfab5a51d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potions: {fileID: 11400000, guid: b78260607226aef489d8f95259e3100b, type: 2}
-  weapons: {fileID: 0}
+  potions: {fileID: 0}
+  weapons: {fileID: 11400000, guid: 224c20a29c13da248ab53a8dbd606012, type: 2}
   itemID: 0
   itemTimer: 0
   duration: 0

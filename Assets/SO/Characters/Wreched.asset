@@ -24,5 +24,5 @@ MonoBehaviour:
   expToLevelUp: 800
   expLevel: 0
   expMultiplier: 0.1
-  sprite: {fileID: 0}
+  sprite: {fileID: -2080483208, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
   spriteID: 88

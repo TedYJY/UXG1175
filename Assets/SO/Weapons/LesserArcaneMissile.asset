@@ -18,5 +18,5 @@ MonoBehaviour:
   damageOutput: 15
   coolDown: 2
   type: projectilePassive
-  sprites: {fileID: 0}
+  sprites: {fileID: 1684243177, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
   spriteID: 129
