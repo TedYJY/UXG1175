@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 
 public class EnemyWaveHandler : MonoBehaviour
 {
-    private static string CSVpath = "/Editor/CSV/enemyWaves.csv";
+    private static string CSVpath = "/CSVs/enemyWaves.csv";
     private GameObject spawnHandler;
     private EnemySpawner spawner;
 
