@@ -1,17 +1,17 @@
-using System.IO;
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine;
+using System.IO;
 
-public class EnemyCSVtoSO
+public class DialogueCSVtoSO : MonoBehaviour
 {
-    //String path for the CSV for enemies
-    //Follow naming conventions, else errors show up
-    private static string CSVpath = "/CSVs/enemyData.csv";
+    private static string CSVpath = "/CSVs/Dialogue.csv";
 
     //Adds Menu Item to the Inspector Window to allow generation of new enemies
-    [MenuItem("Utilities/Generate Enemies")]
+    [MenuItem("Utilities/Generate Dialogue")]
 
-    public static void GenerateEnemies()
+    public static void GenerateDialogue()
     {
         //Uses ReadAllLines function to seperate CSV based on rows
         //Uses Application.dataPath to ensure that the CSV can be found regardless on project folder location
@@ -25,38 +25,42 @@ public class EnemyCSVtoSO
         {
 
             //Seperates into new Strings using the comma (',') delimiter
-            string[] splitLines = allLines[i].Split(new char[] { ','});
+            string[] splitLines = allLines[i].Split(new char[] { ',' });
 
 
             //Checks if all data entries are filled
-            if(splitLines.Length != 8)
+            if (splitLines.Length != 7)
             {
-                Debug.Log(allLines[i] + " does not have all 8 values!");
+                Debug.Log(allLines[i] + " does not have all 7 values!");
 
                 //Returns back if all data entries are not filled for "Mental Stability" purposes
                 return;
             }
 
             //Creates new Scriptable Object by referencing to EnemySO script
-            EnemySO enemy = ScriptableObject.CreateInstance<EnemySO>();
+            DialogueSO dialogueSO = ScriptableObject.CreateInstance<DialogueSO>();
 
             //Passes data from CSV into the SO
-            enemy.enemyID = splitLines[0];
-            enemy.enemyName = splitLines[1];
-            enemy.enemyHP = int.Parse(splitLines[2]);
-            enemy.enemyDMG = int.Parse(splitLines[3]);
-            enemy.enemyMoveSpeed = float.Parse(splitLines[4]);
-            enemy.enemyRange = float.Parse(splitLines[5]);
-            enemy.enemyClass = splitLines[6];
+            dialogueSO.dialogueID = splitLines[0];
+            dialogueSO.dialogueGroupID = splitLines[1];
+            dialogueSO.speakerID = int.Parse(splitLines[2]);
+            dialogueSO.speakerName = splitLines[3];
+            dialogueSO.speakerDialogue = splitLines[4];
+
+            string[] dialogueChoicesSplit = splitLines[6].Split(new char[] { '#' });
+
+            dialogueSO.dialogueChoiceIDs = dialogueChoicesSplit;
+
+            dialogueSO.hasChoice = dialogueChoicesSplit.Length > 1 ? true : false;
 
 
 
             //Uses number in CSV to get specific sprite
-            enemy.enemySprite = sprites[int.Parse(splitLines[7])];
+            dialogueSO.speakerSprite = sprites[int.Parse(splitLines[5])];
 
             //Creates a new SO using AssetDatabase CreateAsset function
             //Ensure that there is a folder under Assets labelled "Enemies", else an error will show up
-            AssetDatabase.CreateAsset(enemy, $"Assets/SO/Enemies/Resources/{enemy.enemyID}.asset");
+            AssetDatabase.CreateAsset(dialogueSO, $"Assets/SO/Dialogue/Resources/{splitLines[1]}.asset");
         }
 
         //Saves the created assets
