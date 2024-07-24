@@ -6,7 +6,7 @@ public class EnemyCSVtoSO
 {
     //String path for the CSV for enemies
     //Follow naming conventions, else errors show up
-    private static string CSVpath = "/Editor/CSV/enemyData.csv";
+    private static string CSVpath = "/CSVs/enemyData.csv";
 
     //Adds Menu Item to the Inspector Window to allow generation of new enemies
     [MenuItem("Utilities/Generate Enemies")]
@@ -54,7 +54,7 @@ public class EnemyCSVtoSO
 
             //Creates a new SO using AssetDatabase CreateAsset function
             //Ensure that there is a folder under Assets labelled "Enemies", else an error will show up
-            AssetDatabase.CreateAsset(enemy, $"Assets/ScriptableObjects/Enemies/Resources/{enemy.enemyID}.asset");
+            AssetDatabase.CreateAsset(enemy, $"Assets/SO/Enemies/Resources/{enemy.enemyID}.asset");
         }
 
         //Saves the created assets

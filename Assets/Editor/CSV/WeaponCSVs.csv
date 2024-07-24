@@ -1,7 +1,0 @@
-weaponID,itemName,type,speed,damageOutput,coolDown,sprite
-3001,meleeItem1,meleeActive,277,30,0,103
-3002,meleeItem2,meleeActive,360,10,0,104
-3003,meleeItem3,meleeActive,400,5,0,106
-4001,LesserArcaneMissile,projectileActive,5,15,2,129
-4002,MagicStones,projectileActive,8,20,5,130
-4003,D20 Fireball,projectileActive,10,25,10,131
