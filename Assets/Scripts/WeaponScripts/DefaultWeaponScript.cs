@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEngine.GraphicsBuffer;
@@ -16,11 +17,16 @@ public class DefaultWeaponScript : MonoBehaviour
 
     public GameObject theSprite;
 
-    // attributes;
+    // attributes
     public int damage;
     public int speed;
     public int defaultCooldown;
     public Sprite assignedSprite;
+
+    public int startingDamage;
+    public int startingSpeed;
+    public int startingCooldown;
+
 
     public int dmgInc;
     public int spInc;
@@ -31,110 +37,117 @@ public class DefaultWeaponScript : MonoBehaviour
 
     public int playerLevel;
     public bool isLevelingUp;
+
     // Start is called before the first frame update
     void Start()
     {
-
-
+        //reset values
+       
 
         isLevelingUp = false;
-        // assigning the variables
-        damage = defaultWeapon.damageOutput;
-        speed = defaultWeapon.speed;
-        defaultCooldown = defaultWeapon.coolDown;
+
+        // Assign initial values from ScriptableObject
+        startingDamage = defaultWeapon.damageOutput;
+        startingSpeed = defaultWeapon.speed;
+        startingCooldown = defaultWeapon.coolDown;
         assignedSprite = defaultWeapon.sprites;
 
-        // accessing player data
+        // data to be updated
+        damage = startingDamage;
+        speed = startingSpeed;
+        defaultCooldown = startingCooldown;
+
+        // Accessing player data
         callingPlayer = Player.GetComponent<thePlayer>();
 
         targetPos = callingPlayer.saveClicked; // Set target position from player
-        playerLevel = callingPlayer.playerLevel; // getting player level
+        playerLevel = callingPlayer.playerLevel; // Get player level
 
         // Calculate the direction to move towards the target position
         theDirection = (targetPos - (Vector2)transform.position).normalized;
 
-        // Accessing the projectile's sprite renderer
+        // Access the projectile's sprite renderer and assign the sprite
         SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = assignedSprite; // Swap sprite
+        spriteRenderer.sprite = assignedSprite;
 
         InitiateCoolDown(defaultCooldown);
-
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isLevelingUp == true)
+        playerLevel = callingPlayer.playerLevel;
+
+        if (isLevelingUp)
         {
-            ApplyUpgrade();
-            transform.position += (Vector3)theDirection * speed * Time.deltaTime;
+            //ApplyUpgrade();
             isLevelingUp = false; // Prevent continuous upgrades
         }
-        else
-        {
-            transform.position += (Vector3)theDirection * speed * Time.deltaTime;
-        }
+
+        // Move projectile in the calculated direction
+        transform.position += (Vector3)theDirection * (startingSpeed + spInc) * Time.deltaTime;
     }
 
-    public void InitiateCoolDown(int coolDown) // sending cooldown to player
+    public void InitiateCoolDown(int coolDown) // Sending cooldown to player
     {
-       
-        coolDown = defaultCooldown;
-        callingPlayer.GivingCoolDown(coolDown);
-        
+        callingPlayer.GivingCoolDown(defaultCooldown + cdInc);
     }
 
     public void LevelUpDefaultWeapon()
-    {  
+    {
         thePlayer thePlayerStats = Player.GetComponent<thePlayer>();
 
-        float coolDownIncrement = (defaultCooldown * thePlayerStats.expMultiplier); // calculating stats to upgrade
-        float damageIncrement = (int)(damage * thePlayerStats.expMultiplier);
-        float speedIncrement = (int)(speed * thePlayerStats.expMultiplier);
+        // Calculating stats to upgrade
+        int coolDownIncrement = (int)(defaultCooldown * thePlayerStats.expMultiplier);
+        int damageIncrement = (int)(damage * thePlayerStats.expMultiplier);
+        int speedIncrement = (int)(speed * thePlayerStats.expMultiplier);
 
-        DefaultWeaponManager theManager = Player.GetComponent<DefaultWeaponManager>(); //calling manager to store data
+        DefaultWeaponManager theManager = Player.GetComponent<DefaultWeaponManager>(); // Calling manager to store data
+        theManager.UpdateWeaponStats(damageIncrement, speedIncrement, coolDownIncrement); // Store data
 
-
-        theManager.UpdateWeaponStats(damageIncrement, speedIncrement, coolDownIncrement);
-        isLevelingUp = true;
-
-       
+        GetIncrements(damageIncrement, speedIncrement, coolDownIncrement); // Fetch increments
+        isLevelingUp = true; // Trigger upgrade
     }
 
-    public void GetIncrements(int damageInc, int speedInc, int cooldownInc)
+    public void GetIncrements(int damageInc, int speedInc, int cooldownInc) // Get data to increment
     {
-       dmgInc = damageInc;
-       spInc = speedInc;
-       cdInc = cooldownInc;
+        dmgInc = damageInc;
+        spInc = speedInc;
+        cdInc = cooldownInc;
+
+        GiveDamage(startingDamage, dmgInc);
     }
 
-    public void ApplyUpgrade()
+    public void GiveDamage(int startingDamage, int dmgInc)
+    {
+        int dmageToDeal = startingDamage + dmgInc;
+
+        // pass to enemy script;
+
+    }
+
+
+    /*public void ApplyUpgrade()
     {
         Debug.Log("Applying Upgrades");
+        // Applying the increments
         damage += dmgInc;
         speed += spInc;
         defaultCooldown += cdInc;
 
-        // Update sprite color to be more red
-        if (theSprite != null)
+        // Access the sprite renderer and update color
+        SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
         {
-            SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null)
-            {
-                Color currentColor = spriteRenderer.color;
-                currentColor.r = Mathf.Clamp(currentColor.r + 0.1f, 0, 1); // increase red component
-                spriteRenderer.color = currentColor;
-            }
-            else
-            {
-                Debug.LogError("SpriteRenderer component is missing on theSprite.");
-            }
+            Color currentColor = spriteRenderer.color;
+            currentColor.r = Mathf.Clamp(currentColor.r + 0.1f, 0, 1); // Increase red component
+            spriteRenderer.color = currentColor;
         }
-
-        isLevelingUp = false;
-    }
-
+        else
+        {
+            Debug.LogError("SpriteRenderer component is missing on theSprite.");
+        }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

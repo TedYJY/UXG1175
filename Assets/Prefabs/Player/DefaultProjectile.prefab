@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6296093555201617083}
   - component: {fileID: 3935002766046749149}
   - component: {fileID: 8622933200945500237}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DefaultProjectile
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -53,9 +53,12 @@ MonoBehaviour:
   speed: 25
   defaultCooldown: 25
   assignedSprite: {fileID: -755386875, guid: c405f86b031d72544a4edc06d728b241, type: 3}
-  dmgInc: 5
-  spInc: 5
-  cdInc: 5
+  startingDamage: 0
+  startingSpeed: 0
+  startingCooldown: 0
+  dmgInc: 0
+  spInc: 0
+  cdInc: 0
   playerLevel: 0
   isLevelingUp: 1
 --- !u!212 &3935002766046749149
@@ -125,7 +128,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

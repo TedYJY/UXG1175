@@ -18,6 +18,15 @@ public class DefaultWeaponManager : MonoBehaviour
 
 
     // Method to update weapon stats
+
+    private void Start()
+    {
+        //reset database
+        weaponDamage = 0;
+        weaponSpeed = 0;
+        weaponCooldown = 0;
+    }
+
     public void UpdateWeaponStats(float floatDamageIncrement, float floatSpeedIncrement, float floatCooldownIncrement)
     {
 
@@ -35,17 +44,6 @@ public class DefaultWeaponManager : MonoBehaviour
         theMainDefaultWeapon.GetIncrements(weaponDamage,weaponSpeed,weaponCooldown);
     }
 
-   /* public void SpawnNewWeapon()
-    {
-        DefaultWeaponScript weaponScript = defaultWeaponPrefab.GetComponent<DefaultWeaponScript>();
-
-        weaponScript.damage = weaponScript.damage + weaponDamage;
-        weaponScript.speed = weaponScript.speed + weaponSpeed;
-        weaponScript.defaultCooldown = weaponScript.defaultCooldown + weaponCooldown;
-       
-        Instantiate(defaultWeaponPrefab, transform.position, Quaternion.identity);
-        
-    }*/
 
     
 

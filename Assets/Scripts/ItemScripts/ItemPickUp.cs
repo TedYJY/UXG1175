@@ -36,23 +36,19 @@ public class ItemPickUp : MonoBehaviour
     {
 
         // for standard items
-        itemID = this.potions.itemID;
+        itemID = this.potions.itemID;  
         itemTimer = this.potions.duration;
         value = this.potions.value;
         type = this.potions.type;
 
-        return (itemID, itemTimer, value, type);
+        return (itemID, itemTimer, value, type); //return to player
 
 
     }
 
     public (int itemID, string name, string type, int speed, int damageOutput, int coolDown, int sprite, Sprite sprites) GrabWeapon()
-    {
-        if (weapons == null)
-        {
-            Debug.Log("weapon not found");
-        }
-
+    {   
+        // for weapons
         int itemID = this.weapons.weaponID;
         string name = this.weapons.itemName;
         string type = this.weapons.type;
@@ -62,10 +58,7 @@ public class ItemPickUp : MonoBehaviour
         int sprite = this.weapons.spriteID;
         sprites = this.weapons.sprites;
 
-
-
-
-        return (itemID, name, type, speed, damageOutput, coolDown, sprite, sprites);
+        return (itemID, name, type, speed, damageOutput, coolDown, sprite, sprites); //return to player 
     }
 
     

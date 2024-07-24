@@ -9,6 +9,8 @@ TagManager:
   - MeleeWeapons2
   - healthPotion
   - SpawnHandler
+  - mapBounds
+  - normalItems
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Water
   - UI
   - WeaponsNenemy
-  - 
+  - weapons
   - 
   - 
   - 
