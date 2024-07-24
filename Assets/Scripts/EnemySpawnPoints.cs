@@ -8,6 +8,8 @@ public class EnemySpawnPoints : MonoBehaviour
     public GameObject theSpawn;
     public List<GameObject> theSpawners;
 
+    public GameObject thePlayer;
+
     // Variables from difficulty script
     private int amountToSpawn;
     public int currentWave;
@@ -25,6 +27,11 @@ public class EnemySpawnPoints : MonoBehaviour
     public float currentWaveTimer;
     public bool waveActive;
 
+    public int totalElapsedTime;
+    public int savedTime;
+    private float elapsedTime;
+
+
     void Start()
     {
         amountToSpawn = theDifficulty.numberOfSpawners;
@@ -36,7 +43,7 @@ public class EnemySpawnPoints : MonoBehaviour
         currentWave = 1;
         currentWaveTimer = waveTimer;
 
-        for (int i = 0; i < amountToSpawn; i++)
+        for (int i = 0; i < amountToSpawn; i++) //read csv on how many to spawn and which one to spawn and add it to the list of spawners
         {
             theSpawners.Add(theSpawn);
         }
@@ -76,7 +83,7 @@ public class EnemySpawnPoints : MonoBehaviour
 
     void GetRandomPoint()
     {
-        bounds = theCamera.GetComponent<cameraMovement>();
+        bounds = theCamera.GetComponent<cameraMovement>(); // getting the bounds of where to spawn from the camera
 
         float randomX = Random.Range(bounds.min.x, bounds.max.x);
         float randomY = Random.Range(bounds.min.y, bounds.max.y);
@@ -86,10 +93,24 @@ public class EnemySpawnPoints : MonoBehaviour
 
     void Update()
     {
+        elapsedTime += Time.deltaTime; // Accumulate time in float
+        totalElapsedTime = (int)elapsedTime; //timer to keep track of play time
+
+
+
         // Optional: Check current state, debug info, etc.
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log($"Wave {currentWave} Timer: {currentWaveTimer}");
         }
+
+        if (thePlayer != null) 
+        
+        {
+            savedTime = totalElapsedTime;
+        }
+
+
+
     }
 }

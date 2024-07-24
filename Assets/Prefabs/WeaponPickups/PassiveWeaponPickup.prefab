@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb744d7ea5e96bf4a91fc01566a9fb27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potions: {fileID: 0}
-  weapons: {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}
+  potions: {fileID: 11400000, guid: b78260607226aef489d8f95259e3100b, type: 2}
+  weapons: {fileID: 0}
   itemID: 0
   itemTimer: 0
   duration: 0

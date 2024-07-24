@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a05e9e07dd5c1a4b81cfd16639f41aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons: {fileID: 0}
+  weapons: {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}
   meleeWeaponsList:
   - {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
   - {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}

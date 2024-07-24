@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1183145247, guid: c405f86b031d72544a4edc06d728b241, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1.6161617, y: 1.6161617}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &8386864770122875789
@@ -101,7 +101,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -143,10 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3231043c7413c424ca5e533a90f09021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projWeaponToSwap: {fileID: 11400000, guid: 9023c83cc8955ff428837336e7019b3c, type: 2}
+  projWeaponToSwap: {fileID: 11400000, guid: 3f683cd8718b19d408afa2bd19886c73, type: 2}
   theSprite: {fileID: 7137010060227732102}
   projectileWeaponList:
   - {fileID: 11400000, guid: 3f683cd8718b19d408afa2bd19886c73, type: 2}
   - {fileID: 11400000, guid: 9023c83cc8955ff428837336e7019b3c, type: 2}
   - {fileID: 11400000, guid: fb170d8c5444a47498dc8e527faa55c5, type: 2}
-  target: {x: 0.26574016, y: -0.9232826}
+  target: {x: 1.9997761, y: -1.9864395}

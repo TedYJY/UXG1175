@@ -19,7 +19,7 @@ public class ProjectileTemplate : MonoBehaviour
         {
 
             Debug.Log("swappingProjectile");
-            if (projWeaponID == projWeapon.weaponID) 
+            if (projWeaponID == projWeapon.weaponID)  //swapping attributes
             {
                 SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
                 projWeaponToSwap = projWeapon;
@@ -32,7 +32,7 @@ public class ProjectileTemplate : MonoBehaviour
 
     public void SetTarget(Vector2 TargetPosition)
     {
-        target = TargetPosition;
+        target = TargetPosition; //takes targets from projectile spawnerscript
        
     }
   

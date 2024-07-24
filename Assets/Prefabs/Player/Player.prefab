@@ -184,18 +184,29 @@ MonoBehaviour:
   characterID: 0
   moveSpeed: 5
   hp: 0
+  maxHP: 0
   startingLevel: 0
   maxLevel: 0
   startingExp: 0
-  expLevelUp: 0
+  currentExp: 0
+  expToLevelUp: 0
   expMultiplier: 0
+  playerLevel: 0
   xAxis: 0
   yAxis: 0
-  meleeWeaponHolder: {fileID: 2094165213834056250, guid: 190769af76b56e74bbec8a9e29a4d3fa, type: 3}
+  meleeWeaponHolder: {fileID: 2094165213834056250, guid: a262b1a7d36fdf5458dd7f710edbf6d9, type: 3}
   Projectile: {fileID: 7137010060227732102, guid: 379819bdd864a82418e43c3cc120520d, type: 3}
   projectileHolder: {fileID: 690906759338663060, guid: 51688fdd1dca7e94eb9619290ea8ba52, type: 3}
   weaponPivot: {fileID: 7272735528899009140}
   sprite: {fileID: 0}
+  mousePos: {x: 0, y: 0}
+  sceneCamera: {fileID: 0}
+  defaultWeapon: {fileID: 7711833345171397574, guid: 3ee899146e015b84cb3aa964a3a464e0, type: 3}
+  saveClicked: {x: 0, y: 0}
+  levelUpActive: 0
+  cooldownTimer: 0
+  cooldownDuration: 0
+  canFire: 0
 --- !u!58 &6022840125605673269
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -374,7 +385,11 @@ PrefabInstance:
     - target: {fileID: 3203331578008623890, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
       propertyPath: weapons
       value: 
-      objectReference: {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203331578008623890, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
+      propertyPath: theSprite
+      value: 
+      objectReference: {fileID: 2175041880250104383}
     - target: {fileID: 3203331578008623890, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
       propertyPath: meleeWeaponsList.Array.size
       value: 3
@@ -382,15 +397,15 @@ PrefabInstance:
     - target: {fileID: 3203331578008623890, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
       propertyPath: meleeWeaponsList.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
+      objectReference: {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}
     - target: {fileID: 3203331578008623890, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
       propertyPath: meleeWeaponsList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}
+      objectReference: {fileID: 11400000, guid: a3be2a1f92e52cd4381df489d8690eb3, type: 2}
     - target: {fileID: 3203331578008623890, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
       propertyPath: meleeWeaponsList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: a3be2a1f92e52cd4381df489d8690eb3, type: 2}
+      objectReference: {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
     - target: {fileID: 3574675885041750068, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 512
@@ -402,7 +417,7 @@ PrefabInstance:
     - target: {fileID: 3935556495139050488, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5731114003376966503, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -468,6 +483,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
+--- !u!1 &2175041880250104383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5731114003376966503, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}
+  m_PrefabInstance: {fileID: 5883474362290057560}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3355741563202930379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9166991205145458579, guid: 1f00c3d8d1028824aaa389145b827b82, type: 3}

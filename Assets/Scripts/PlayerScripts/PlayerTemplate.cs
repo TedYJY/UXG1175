@@ -9,11 +9,14 @@ public class PlayerTemplate : ScriptableObject //inherit scriptable object
     public string characterName;
     public int movementSpeed;
     public int health;
+    public int maxHealth;
     public int startingLevel;
     public int maxLevel;
     public int startingExp;
-    public int expLevelUp;
+    public int currentExp;
+    public int expToLevelUp;
     public int expLevel;
     public float expMultiplier;
     public Sprite sprite;
+    public int spriteID;
 }

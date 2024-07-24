@@ -49,7 +49,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potions: {fileID: 0}
-  weapons: {fileID: 0}
+  weapons: {fileID: 11400000, guid: 3f683cd8718b19d408afa2bd19886c73, type: 2}
   itemID: 0
   itemTimer: 0
   duration: 0

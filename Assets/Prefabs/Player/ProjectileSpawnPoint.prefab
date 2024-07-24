@@ -139,8 +139,9 @@ MonoBehaviour:
   - {fileID: 530603710603515451}
   - {fileID: 3353482309416701222}
   - {fileID: 2846282210332339939}
+  projectileList: []
   spawnCoolDown: 2
-  projectileTemplate: {fileID: 6744705339984431736, guid: 379819bdd864a82418e43c3cc120520d, type: 3}
+  projectileTemplate: {fileID: 0}
   isCooldown: 0
 --- !u!1 &2846282210332339939
 GameObject:

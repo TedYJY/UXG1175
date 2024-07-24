@@ -1,0 +1,7 @@
+itemID,itemName,type,value,duration
+1101,LesserHealthPotion,health,10,0
+1102,HealthPotion,health,20,0
+1103,LargeHealthPotion,health,50,0
+1201,LesserSpeedPotion,speed,2,2
+1202,SpeedPotion,speed,3,6
+1203,LargeSpeedPotion,speed,5,8

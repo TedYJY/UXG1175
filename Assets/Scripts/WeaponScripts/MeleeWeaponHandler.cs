@@ -7,7 +7,7 @@ public class MeleeWeaponHandler : MonoBehaviour
     [SerializeField]
     Weapons weapon;
 
-   /* EnemyMovement theEnemy;
+    EnemyMovement theEnemy;
 
     // Update is called once per frame
     public void OnTriggerEnter2D(Collider2D collision)
@@ -18,5 +18,5 @@ public class MeleeWeaponHandler : MonoBehaviour
             // Debug.Log($"Dealing {weapon.damageOutput} damage to enemy");
             theEnemy.TakeDamage(weapon.damageOutput);
         }
-    }*/
+    }
 }
