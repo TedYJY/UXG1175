@@ -34,6 +34,7 @@ public class EnemySpawnPoints : MonoBehaviour
 
     void Start()
     {
+        // assignning from scriptableObj
         amountToSpawn = theDifficulty.numberOfSpawners;
         totalWave = theDifficulty.numberOfWaves;
         waveTimer = theDifficulty.waveTimer;
@@ -56,11 +57,11 @@ public class EnemySpawnPoints : MonoBehaviour
     {
         while (waveActive && currentWave <= totalWave)
         {
-            // Wait for the current wave timer
+            // wait for the current wave timer
             yield return new WaitForSeconds(currentWaveTimer);
 
-            // Determine how many spawners to spawn for this wave
-            int theWavePointsToSpawn = Random.Range(minActive, maxActive + 1);
+           
+            int theWavePointsToSpawn = Random.Range(minActive, maxActive + 1);  // determine how many spawners to spawn for this wave
 
             for (int i = 0; i < theWavePointsToSpawn; i++)
             {
@@ -71,7 +72,7 @@ public class EnemySpawnPoints : MonoBehaviour
             currentWave++;
         }
 
-        waveActive = false; // Disable wave spawning after all waves are spawned
+        waveActive = false; // disable wave spawning after all waves are spawned
     }
 
     void SpawnRandomPoints()
@@ -88,15 +89,13 @@ public class EnemySpawnPoints : MonoBehaviour
         float randomX = Random.Range(bounds.min.x, bounds.max.x);
         float randomY = Random.Range(bounds.min.y, bounds.max.y);
 
-        spawnRandom = new Vector2 (randomX, randomY);
+        spawnRandom = new Vector2 (randomX, randomY); //assign new coords of spawn
     }
 
     void Update()
     {
         elapsedTime += Time.deltaTime; // Accumulate time in float
         totalElapsedTime = (int)elapsedTime; //timer to keep track of play time
-
-
 
         // Optional: Check current state, debug info, etc.
         if (Input.GetKeyDown(KeyCode.Space))
