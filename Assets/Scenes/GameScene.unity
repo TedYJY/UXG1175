@@ -1124,6 +1124,10 @@ PrefabInstance:
       propertyPath: theCamera
       value: 
       objectReference: {fileID: 519420028}
+    - target: {fileID: 6351066897437137630, guid: e76db8c5c7cc72d4eb719def974f78d0, type: 3}
+      propertyPath: theDifficulty
+      value: 
+      objectReference: {fileID: 11400000, guid: 0da6b44996d5cfb4f9d42861c697f51e, type: 2}
     - target: {fileID: 8022536399109063393, guid: e76db8c5c7cc72d4eb719def974f78d0, type: 3}
       propertyPath: m_Name
       value: LevelManager
