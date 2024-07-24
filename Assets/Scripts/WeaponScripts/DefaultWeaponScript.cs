@@ -35,8 +35,6 @@ public class DefaultWeaponScript : MonoBehaviour
     void Start()
     {
 
-
-
         isLevelingUp = false;
         // assigning the variables
         damage = defaultWeapon.damageOutput;

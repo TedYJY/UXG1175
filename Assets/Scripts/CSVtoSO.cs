@@ -45,7 +45,6 @@ public class CSVtoSO : MonoBehaviour
             weapon.sprites = getSprite(int.Parse(splitData[6]));
            
     
-
             AssetDatabase.CreateAsset(weapon, $"Assets/SO/Weapons/{weapon.itemName}.asset"); // telling program where to save
         }
 

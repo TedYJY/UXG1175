@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f32429ba396374888e40912d38e62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
+  weapon: {fileID: 0}
 --- !u!61 &3574675885041750068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,7 +153,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9166991205145458579}
-  - component: {fileID: 3203331578008623890}
   m_Layer: 3
   m_Name: Default Melee Weapon
   m_TagString: Weapon
@@ -177,19 +176,6 @@ Transform:
   - {fileID: 6777761040323778393}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3203331578008623890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6650458981628655964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a05e9e07dd5c1a4b81cfd16639f41aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
 --- !u!1 &7387212507114076750
 GameObject:
   m_ObjectHideFlags: 0

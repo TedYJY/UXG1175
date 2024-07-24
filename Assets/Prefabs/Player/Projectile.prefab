@@ -143,10 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3231043c7413c424ca5e533a90f09021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projWeaponToSwap: {fileID: 11400000, guid: 3f683cd8718b19d408afa2bd19886c73, type: 2}
+  projWeaponToSwap: {fileID: 0}
   theSprite: {fileID: 7137010060227732102}
   projectileWeaponList:
-  - {fileID: 11400000, guid: 3f683cd8718b19d408afa2bd19886c73, type: 2}
-  - {fileID: 11400000, guid: 9023c83cc8955ff428837336e7019b3c, type: 2}
-  - {fileID: 11400000, guid: fb170d8c5444a47498dc8e527faa55c5, type: 2}
-  target: {x: -1.3664906, y: -2.108207}
+  - {fileID: 11400000, guid: 59cccdda0d4791e46bece59d2c79bbb6, type: 2}
+  - {fileID: 11400000, guid: a611eac79e83aa845bd0a52caa08a254, type: 2}
+  - {fileID: 11400000, guid: 1a3279dd23da94947b8acdc7e0ef1a4c, type: 2}
+  target: {x: 0.8841187, y: -3.5860236}

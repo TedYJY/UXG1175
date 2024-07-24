@@ -1083,7 +1083,7 @@ PrefabInstance:
     - target: {fileID: 8250958440083190033, guid: bef1dfeda435a4b44881d50eb3d55311, type: 3}
       propertyPath: weapons
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 5dc587f7a7a7cc64695fd8f0e53b2ab0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1328,6 +1328,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1386335552}
+    - target: {fileID: 6296093555201617083, guid: 3ee899146e015b84cb3aa964a3a464e0, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ff9b155cbdf6da4ebf6dd25fb7f8529, type: 2}
     - target: {fileID: 7711833345171397574, guid: 3ee899146e015b84cb3aa964a3a464e0, type: 3}
       propertyPath: m_Name
       value: DefaultProjectile
@@ -1348,7 +1352,7 @@ PrefabInstance:
     - target: {fileID: 173098803472478514, guid: bebdd0a07951d1c438b4bfb9d525a74d, type: 3}
       propertyPath: weapons
       value: 
-      objectReference: {fileID: 11400000, guid: 3f683cd8718b19d408afa2bd19886c73, type: 2}
+      objectReference: {fileID: 11400000, guid: a611eac79e83aa845bd0a52caa08a254, type: 2}
     - target: {fileID: 4273251509394187393, guid: bebdd0a07951d1c438b4bfb9d525a74d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.86

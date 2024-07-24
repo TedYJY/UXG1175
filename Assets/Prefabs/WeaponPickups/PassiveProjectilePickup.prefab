@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potions: {fileID: 0}
-  weapons: {fileID: 0}
+  weapons: {fileID: 11400000, guid: 9023c83cc8955ff428837336e7019b3c, type: 2}
   itemID: 0
   itemTimer: 0
   duration: 0
