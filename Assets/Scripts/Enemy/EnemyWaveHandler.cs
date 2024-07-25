@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.Rendering;
 
+//Written by: Tedmund Yap
 public class EnemyWaveHandler : MonoBehaviour
 {
     private static string CSVpath = "/CSVs/enemyWaves.csv";
+    [SerializeField]
     private GameObject spawnHandler;
     private EnemySpawner spawner;
 
@@ -32,9 +34,9 @@ public class EnemyWaveHandler : MonoBehaviour
             splitLines = allLines[i].Split(new char[] { ',' });
 
             //Checks if all data entries are filled
-            if (splitLines.Length != 3)
+            if (splitLines.Length != 4)
             {
-                Debug.Log(allLines[i] + " does not have all 3 values!");
+                Debug.Log(allLines[i] + " does not have all 4 values!");
 
                 //Returns back if all data entries are not filled for "Mental Stability" purposes
                 return;
@@ -62,19 +64,16 @@ public class EnemyWaveHandler : MonoBehaviour
     {
         spawnHandler = GameObject.FindWithTag("SpawnHandler");
         spawner = spawnHandler.GetComponent<EnemySpawner>();
+        StartCoroutine(SpawnWithDelay());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            BeginWaves();
-        }
 
     }
 
-    public void BeginWaves()
+    IEnumerator SpawnWithDelay()
     {
         switch (lvl)
         {
@@ -93,6 +92,7 @@ public class EnemyWaveHandler : MonoBehaviour
         //Loop through currentlvl to seperate waves
         for (int i = 0; i < currentlvl.Length; i++)
         {
+            //Debug.Log("Starting Loop");
             //Split currentlvl[i] into an array where each entry contains enemyID#amount
             string[] combinedEnemies = currentlvl[i][2].Split(new char[] { '!' });
 
@@ -100,16 +100,18 @@ public class EnemyWaveHandler : MonoBehaviour
             for (int y = 0; y < combinedEnemies.Length; y++)
             {
                 splitEnemies = combinedEnemies[y].Split(new char[] { '#' });
-                Debug.Log(splitEnemies[0] + splitEnemies[1]);
+                //Debug.Log(splitEnemies[0] + splitEnemies[1]);
 
                 for (int x = 0; x < int.Parse(splitEnemies[1]); x++)
                 {
-                    spawner.SpawnEnemy(splitEnemies[0], new Vector2(0, 0));
+                    spawner.SpawnEnemy(splitEnemies[0], this.gameObject.transform.position);
+                    yield return new WaitForSeconds(0.5f);
                 }
             }
 
         }
 
+        Destroy(this.gameObject);
     }
 
 }

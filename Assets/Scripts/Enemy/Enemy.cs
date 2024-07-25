@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//Written by: Tedmund Yap
 public class Enemy : MonoBehaviour
 {
     private GameObject player; //For accessing scripts, and referencing
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
         this.GetComponent<CircleCollider2D>().radius = atkRange;
     }
 
-void Update()
+    void Update()
     {
         if (foundPlayer == false) //If player has not been found by search radius
         {
@@ -138,6 +139,12 @@ void Update()
             {
                 AttemptAttack();
             }
+        }
+
+        if (atkClass == "Ranged" && Vector2.Distance(transform.position, player.transform.position) < atkRange / 1.25f)
+        {
+            Debug.Log("Range running away!");
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, (float)(-0.5 * moveSpeed) * Time.deltaTime);
         }
     }
 

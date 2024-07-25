@@ -204,46 +204,57 @@ public class thePlayer : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        theItem = collision.GetComponent<ItemPickUp>();
-        
-        if (theItem.tag == "normalItems")
+
+        try
         {
-            var ItemData = theItem.GrabItemValues(); // storing the values returned from the grabID method for items;
-
-            itemID = ItemData.itemID; //grabbing the various dats
-            itemValue = ItemData.value;
-            itemDuration = ItemData.itemTimer;
-            type = ItemData.type;
+            theItem = collision.GetComponent<ItemPickUp>();
 
 
-            ItemFunctions(itemID); // send to excute functions
+            if (theItem.tag == "normalItems")
+            {
+                var ItemData = theItem.GrabItemValues(); // storing the values returned from the grabID method for items;
+
+                itemID = ItemData.itemID; //grabbing the various dats
+                itemValue = ItemData.value;
+                itemDuration = ItemData.itemTimer;
+                type = ItemData.type;
+
+
+                ItemFunctions(itemID); // send to excute functions
+
+                Debug.Log("Item picked up");
+            }
+
+            else if (theItem.tag == "Weapon")
+            {
+                var weaponData = theItem.GrabWeapon();
+
+                itemID = weaponData.itemID;             // reassigning item variables fro item pickup script
+                itemDuration = weaponData.coolDown;
+                type = weaponData.type;
+                name = weaponData.name;
+                speed = weaponData.speed;
+                damageOutput = weaponData.damageOutput;
+                spriteID = weaponData.sprite;
+                sprite = weaponData.sprites;
+
+                ItemFunctions(itemID);
+
+                Debug.Log("Weapon picked up");
+            }
+
+            else
+            {
+                Debug.Log("cant find");
+            }
+
+
+
+            Destroy(collision.gameObject);
+
         }
 
-        else if (theItem.tag == "Weapon")
-        {
-            var weaponData = theItem.GrabWeapon();
-
-            itemID = weaponData.itemID;             // reassigning item variables fro item pickup script
-            itemDuration = weaponData.coolDown;
-            type = weaponData.type;
-            name = weaponData.name;
-            speed = weaponData.speed;
-            damageOutput = weaponData.damageOutput;
-            spriteID = weaponData.sprite;
-            sprite = weaponData.sprites;
-
-            ItemFunctions(itemID);
-        }
-
-        else
-        {
-            Debug.Log("cant find");
-        }
-
-       
-
-        Destroy(collision.gameObject);
+        catch { }
        
     }
 
@@ -304,7 +315,7 @@ public class thePlayer : MonoBehaviour
                 SpriteRenderer spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
 
                 spriteRenderer.sprite = chars.sprite;
-                Debug.Log("here");
+                //Debug.Log("here");
             }
         }
     }

@@ -8,6 +8,9 @@ public class EnemySpawnPoints : MonoBehaviour
     public GameObject theSpawn;
     public List<GameObject> theSpawners;
 
+    [SerializeField]
+    private GameObject enemySpawnHandler;
+
     public GameObject thePlayer;
 
     // Variables from difficulty script
@@ -79,7 +82,8 @@ public class EnemySpawnPoints : MonoBehaviour
     {
         int randomIndex = Random.Range(0, amountToSpawn); // Random index within theSpawners list
         GetRandomPoint(); // Get a random spawn point
-        Instantiate(theSpawners[randomIndex], spawnRandom, Quaternion.identity); // Instantiate the spawner at the random point
+        GameObject spawner = Instantiate(theSpawners[randomIndex], spawnRandom, Quaternion.identity); // Instantiate the spawner at the random point
+        spawner.SetActive(true);
     }
 
     void GetRandomPoint()
