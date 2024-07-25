@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
+//Written by Ryan Jacob
 public class cameraMovement : MonoBehaviour
 {
     // Start is called before the first frame update

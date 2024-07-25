@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEngine.GraphicsBuffer;
 
+//Written by Ryan Jacob
 public class DefaultWeaponScript : MonoBehaviour
 {
     [SerializeField]

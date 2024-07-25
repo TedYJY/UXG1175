@@ -2,6 +2,7 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 
+//Written by: Tedmund Yap
 public class EnemyCSVtoSO
 {
     //String path for the CSV for enemies

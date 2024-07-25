@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Written by Ryan Jacob
 [CreateAssetMenu(fileName = "New Character", menuName = "CharacterTemplate")]
 public class PlayerTemplate : ScriptableObject //inherit scriptable object
 {

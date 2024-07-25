@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//Written by Ryan Jacob
 public class ItemPickUp : MonoBehaviour
 {
     [SerializeField]

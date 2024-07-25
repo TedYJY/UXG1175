@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Written by Ryan Jacob
 public class UIManager : MonoBehaviour
 {
     

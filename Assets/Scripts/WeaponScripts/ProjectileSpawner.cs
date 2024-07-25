@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
+//Written by Ryan Jacob
 public class ProjectileSpawner : MonoBehaviour
 {
     public Transform spawnPoint;

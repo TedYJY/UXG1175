@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+//Written by: Tedmund Yap
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Variables")]

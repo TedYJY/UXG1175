@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//Written by Ryan Jacob
 [CreateAssetMenu(fileName = "New Health Potion", menuName = "Potion/HealthPotion")] // tells unity what to display options as
 
 public class Potions : ScriptableObject

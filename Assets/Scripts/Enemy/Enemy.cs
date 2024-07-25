@@ -143,7 +143,7 @@ public class Enemy : MonoBehaviour
 
         if (atkClass == "Ranged" && Vector2.Distance(transform.position, player.transform.position) < atkRange / 1.25f)
         {
-            Debug.Log("Range running away!");
+            //Debug.Log("Range running away!");
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, (float)(-0.5 * moveSpeed) * Time.deltaTime);
         }
     }

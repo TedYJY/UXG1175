@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Written by: Ryan Jacob && Tedmund Yap
 public class EnemySpawnPoints : MonoBehaviour
 {
     [SerializeField] Difficulty theDifficulty;

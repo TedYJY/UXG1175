@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 
+//Written by: Tedmund Yap
 public class DialogueCSVtoSO : MonoBehaviour
 {
     private static string CSVpath = "/CSVs/Dialogue.csv";

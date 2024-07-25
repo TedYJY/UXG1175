@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//Written by Ryan Jacob
 public class CharacterManager : MonoBehaviour
 {
     public CharacterDataBase characterData; // accessing the chracter database for amount of characters

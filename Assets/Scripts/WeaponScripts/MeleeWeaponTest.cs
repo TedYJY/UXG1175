@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
+//Written by Ryan Jacob
 public class MeleeWeaponTest : MonoBehaviour
 {
     // Start is called before the first frame update

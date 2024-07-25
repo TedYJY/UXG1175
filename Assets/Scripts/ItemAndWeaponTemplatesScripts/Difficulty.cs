@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//Written by Ryan Jacob
 [CreateAssetMenu(fileName = "New Difficulty", menuName = "DifficultyState")]
 public class Difficulty : ScriptableObject //inherit scriptable object
 {

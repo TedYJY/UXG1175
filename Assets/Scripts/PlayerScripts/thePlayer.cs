@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
+//Written by: Ryan Jacob && Tedmund Yap
 public class thePlayer : MonoBehaviour
 {
     // Start is called before the first frame update

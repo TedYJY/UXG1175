@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Written by Ryan Jacob
 public class ProjectileTemplate : MonoBehaviour
 {
     [SerializeField]

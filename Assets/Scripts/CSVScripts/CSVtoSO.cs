@@ -3,6 +3,7 @@ using UnityEditor;
 using System.IO;
 using Unity.VisualScripting;
 
+//Written by Ryan Jacob
 public class CSVtoSO : MonoBehaviour
 {
     private static string weaponCSVPath = "/CSVs/WeaponCSVs.csv"; // tell editor where file is

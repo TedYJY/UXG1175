@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Written by: Tedmund Yap
 public class EnemySO : ScriptableObject
 {
     public string enemyID;

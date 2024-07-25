@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//Written by: Tedmund Yap
 public class DialogueManager : MonoBehaviour
 {
 
