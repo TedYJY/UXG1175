@@ -106,9 +106,8 @@ public class thePlayer : MonoBehaviour
 
         defaultProjectile = defaultWeapon.GetComponent<DefaultWeaponScript>();
         canFire = true; //ensureing player can always fire on start of game
-        playerLevel = startingLevel;
+        playerLevel = startingLevel; //ensurs player level is set to default
         
-
     }
 
     // Update is called once per frame
@@ -116,8 +115,6 @@ public class thePlayer : MonoBehaviour
     {
 
         InputManagement();
-
-       
 
     }
 
@@ -139,7 +136,7 @@ public class thePlayer : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canFire == true)  //checking if button is pressed and cooldown on weapon has expired
         {
             saveClicked = mousePos;// saving mouse click last pos
-            FireProjectile();
+            FireProjectile(); //fire projectile
             StartCoroutine(weaponCoolDown()); //initiate cooldown coroutine
         }
         else
@@ -175,12 +172,6 @@ public class thePlayer : MonoBehaviour
         DefaultWeaponScript projectileScript = projectileInstance.GetComponent<DefaultWeaponScript>(); // accessing the DefaultWeaponScript
 
         projectileScript.Player = this.gameObject; // the player reference
-
-       /* if (startingLevel < 1)
-        {
-            DefaultWeaponManager manager = thePlayerObj.GetComponent<DefaultWeaponManager>();
-            manager.SpawnNewWeapon();
-        }*/
 
     }
 
@@ -233,7 +224,7 @@ public class thePlayer : MonoBehaviour
         {
             var weaponData = theItem.GrabWeapon();
 
-            itemID = weaponData.itemID;
+            itemID = weaponData.itemID;             // reassigning item variables fro item pickup script
             itemDuration = weaponData.coolDown;
             type = weaponData.type;
             name = weaponData.name;
@@ -291,9 +282,9 @@ public class thePlayer : MonoBehaviour
         {
             ProjectileTemplate projectile = Projectile.GetComponent<ProjectileTemplate>();
 
-            projectile.SwapProjectile(theID);
+            projectile.SwapProjectile(theID); //swap projectile based on ID
 
-            GameObject projectileToIntantiate = projectileHolder.gameObject;
+            GameObject projectileToIntantiate = projectileHolder.gameObject; //set the spawn obj
 
             Instantiate(projectileToIntantiate, weaponPivot.transform);
 
@@ -339,7 +330,7 @@ public class thePlayer : MonoBehaviour
 
                 DefaultWeaponScript defaultWeaponScript = defaultWeapon.GetComponent<DefaultWeaponScript>(); //call level up default weapon method in default weapon script 
                 defaultWeaponScript.Player = this.gameObject;
-                defaultWeaponScript.LevelUpDefaultWeapon();
+                defaultWeaponScript.LevelUpDefaultWeapon(); //pass to defaultweapon script
             }
 
         }
