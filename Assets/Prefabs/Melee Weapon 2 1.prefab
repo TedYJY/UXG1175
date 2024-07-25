@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f32429ba396374888e40912d38e62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: bd35459be4cc2094797478f7b83d40b4, type: 2}
 --- !u!61 &377232339147602362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -221,10 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a05e9e07dd5c1a4b81cfd16639f41aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons: {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}
+  weapons: {fileID: 0}
   meleeWeaponsList:
-  - {fileID: 11400000, guid: 74a558c9e90784940ae508b66c558cbc, type: 2}
-  - {fileID: 11400000, guid: 10deba86d7c740447873ee05e53965be, type: 2}
-  - {fileID: 11400000, guid: a3be2a1f92e52cd4381df489d8690eb3, type: 2}
+  - {fileID: 11400000, guid: bd35459be4cc2094797478f7b83d40b4, type: 2}
+  - {fileID: 11400000, guid: bec57c17347a3ed4dbf33e8fde3d0cab, type: 2}
+  - {fileID: 11400000, guid: cb93ffe209740554abaa226ad56ad059, type: 2}
+  - {fileID: 11400000, guid: dd5d1d5a5e54ab34e829c9142d216922, type: 2}
+  - {fileID: 11400000, guid: 0edf0e1e3a8f17f48ae5329dc7485abc, type: 2}
   theSprite: {fileID: 1219502146961026285}
   isAccessed: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8232338993127490137}
   - component: {fileID: 7236978291190025425}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TargetPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 530603710603515451}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -4.36, z: 0}
+  m_LocalPosition: {x: 0.03, y: -5, z: 0}
   m_LocalScale: {x: 2.5438, y: 2.5438, z: 2.5438}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5282396681189553027}
   - component: {fileID: 7848366204247471823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ProjectileSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,6 @@ MonoBehaviour:
   - {fileID: 530603710603515451}
   - {fileID: 3353482309416701222}
   - {fileID: 2846282210332339939}
-  projectileList: []
   spawnCoolDown: 2
   projectileTemplate: {fileID: 0}
   isCooldown: 0
@@ -153,7 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1828958813576780801}
   - component: {fileID: 7999324407528758367}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TargetPos4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +168,7 @@ Transform:
   m_GameObject: {fileID: 2846282210332339939}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.36, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 2.5438, y: 2.5438, z: 2.5438}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -237,7 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495496308262003085}
   - component: {fileID: 45740854693745631}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TargetPos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +252,7 @@ Transform:
   m_GameObject: {fileID: 3353482309416701222}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 4.36, z: 0}
+  m_LocalPosition: {x: 0.03, y: 5, z: 0}
   m_LocalScale: {x: 2.5438, y: 2.5438, z: 2.5438}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -321,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2989075710341816555}
   - component: {fileID: 7925499895538100260}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TargetPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +336,7 @@ Transform:
   m_GameObject: {fileID: 5194505659106814090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.36, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 2.5438, y: 2.5438, z: 2.5438}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17d116c8ca16466498a4fa73dc57ab7b, type: 3}
-  m_Name: meleeItem1
+  m_Name: ShortSword
   m_EditorClassIdentifier: 
-  weaponID: 3001
-  itemName: meleeItem1
-  speed: 277
-  damageOutput: 30
+  weaponID: 3002
+  itemName: ShortSword
+  speed: 180
+  damageOutput: 10
   coolDown: 0
   type: meleePassive
-  sprites: {fileID: 2060867111, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
-  spriteID: 103
+  sprites: {fileID: 1899925713, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
+  spriteID: 104

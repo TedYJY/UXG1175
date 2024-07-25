@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17d116c8ca16466498a4fa73dc57ab7b, type: 3}
-  m_Name: meleeItem3
+  m_Name: Hero'sBroadSword
   m_EditorClassIdentifier: 
-  weaponID: 3003
-  itemName: meleeItem3
-  speed: 400
-  damageOutput: 5
+  weaponID: 3004
+  itemName: Hero'sBroadSword
+  speed: 270
+  damageOutput: 25
   coolDown: 0
   type: meleePassive
   sprites: {fileID: -1948919581, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
