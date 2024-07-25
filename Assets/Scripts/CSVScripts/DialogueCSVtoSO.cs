@@ -50,6 +50,7 @@ public class DialogueCSVtoSO : MonoBehaviour
 
             string[] dialogueChoicesSplit = splitLines[6].Split(new char[] { '#' });
 
+            //Checks if dialogue has choices
             dialogueSO.dialogueChoiceIDs = dialogueChoicesSplit;
 
             dialogueSO.hasChoice = dialogueChoicesSplit.Length > 1 ? true : false;

@@ -8,12 +8,14 @@ using UnityEngine.Rendering;
 //Written by: Tedmund Yap
 public class EnemyWaveHandler : MonoBehaviour
 {
+    //References to enemyWaves CSV to get data
     private static string CSVpath = "/CSVs/enemyWaves.csv";
+
     [SerializeField]
     private GameObject spawnHandler;
     private EnemySpawner spawner;
-
     public int lvl = 1;
+
     private string[][] currentlvl;
     private List<string[]> lvl1 = new List<string[]>();
     private List<string[]> lvl2 = new List<string[]>();
@@ -42,6 +44,7 @@ public class EnemyWaveHandler : MonoBehaviour
                 return;
             }
 
+            //Filters lvl1 and lvl2 waves into new lists
             switch (splitLines[1])
                 {
                     case "1":
@@ -59,22 +62,19 @@ public class EnemyWaveHandler : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
+        //Finds spawnHandler and gets the script
         spawnHandler = GameObject.FindWithTag("SpawnHandler");
         spawner = spawnHandler.GetComponent<EnemySpawner>();
+
+        //Starts spawning coroutine when activated
         StartCoroutine(SpawnWithDelay());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     IEnumerator SpawnWithDelay()
     {
+        //Switch case checks the current level and chooses which set of waves to choose from
         switch (lvl)
         {
             case 1:
@@ -92,7 +92,6 @@ public class EnemyWaveHandler : MonoBehaviour
         //Loop through currentlvl to seperate waves
         for (int i = 0; i < currentlvl.Length; i++)
         {
-            //Debug.Log("Starting Loop");
             //Split currentlvl[i] into an array where each entry contains enemyID#amount
             string[] combinedEnemies = currentlvl[i][2].Split(new char[] { '!' });
 
@@ -104,8 +103,9 @@ public class EnemyWaveHandler : MonoBehaviour
 
                 for (int x = 0; x < int.Parse(splitEnemies[1]); x++)
                 {
+                    //Spawns enemies and uses the delay in CSV for each enemy
                     spawner.SpawnEnemy(splitEnemies[0], this.gameObject.transform.position);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(float.Parse(currentlvl[i][3]));
                 }
             }
 

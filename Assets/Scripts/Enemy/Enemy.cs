@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Written by: Tedmund Yap
 public class Enemy : MonoBehaviour
@@ -33,6 +34,9 @@ public class Enemy : MonoBehaviour
 
     private bool attackAble; //If enemy is able to attack
 
+    [SerializeField]
+    private Image healthBar; //For health bar UI
+
     void Start()
     {
         StartMovement(); //Starts roaming or moving to player
@@ -52,6 +56,12 @@ public class Enemy : MonoBehaviour
         else if (foundPlayer == true) //If player has been found
         {
             Hunt(); //Starts moving towards player
+        }
+
+        //For testing enemy HP/clearing enemies
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TakeDamage(1);
         }
 
     }
@@ -143,7 +153,7 @@ public class Enemy : MonoBehaviour
 
         if (atkClass == "Ranged" && Vector2.Distance(transform.position, player.transform.position) < atkRange / 1.25f)
         {
-            //Debug.Log("Range running away!");
+            //For ranged enemies to run from player when they approach, for more... liveliness! ¯\_(o_O)_/¯
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, (float)(-0.5 * moveSpeed) * Time.deltaTime);
         }
     }
@@ -173,7 +183,11 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("enemy took damage" + damage);
         health -= damage;
+
+        //Updates UI for health bar
+        healthBar.fillAmount = health / 10f;
 
         if (health <= 0)
         {
@@ -181,7 +195,6 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        //Update UI
     }
 
 }

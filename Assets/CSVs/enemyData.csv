@@ -1,4 +1,4 @@
 enemyID,enemyName,enemyHP,enemyDMG,enemyMoveSpeed,enemyRange,enemyClass,enemySprite
-enemy1,Scout,2,1,1.25,1,Melee,121
+enemy1,Scout,2,1,1.4,1,Melee,121
 enemy2,Tank,8,1,1,1,Melee,109
 enemy3,Mage,4,3,1,6,Ranged,111
