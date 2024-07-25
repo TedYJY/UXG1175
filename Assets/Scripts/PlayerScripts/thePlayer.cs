@@ -184,14 +184,13 @@ public class thePlayer : MonoBehaviour
        
     }
 
-    void TakeDamage() //for enemies to call to damage player
+    public void TakeDamage(int atkDamage) //for enemies to call to damage player
     {
-        if (hp >= 0)
+        hp -= atkDamage;
+
+        if (hp <= 0)
         {
-            hp -= 1;
-        }
-        else
-        {
+            //End Game
             Destroy(this.gameObject);
         }
     }
@@ -321,7 +320,7 @@ public class thePlayer : MonoBehaviour
         }
     }
 
-    void AddToXP(int xpToGet) //to get exp from specific enemies
+    public void AddToXP(int xpToGet) //to get exp from specific enemies
     {
         currentExp += xpToGet; // add to current exp
 

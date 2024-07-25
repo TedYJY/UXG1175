@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour
     {
         if (changeRoam == true) //If change of direction/location is needed
         {
-            //Creates random values +- from current position, and assigns to randomRoam
+            //Creates random values +- from current position, and assigns to randomRoam (Like roaming sheep but better! Probably :D )
             float randomX = transform.position.x + Random.Range(roamRadius, -roamRadius);
             float randomY = transform.position.y + Random.Range(roamRadius, -roamRadius);
             randomRoam = new Vector2(randomX, randomY);
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
 
         if (changeRoam == false) //If change of direction/location is not needed
         {
-            roamTimer -= Time.deltaTime; //Changes every 4 secodns
+            roamTimer -= Time.deltaTime; //Changes every 4 seconds
             if (roamTimer <= 0) //If timer hits 0, change direction/location
             {
                 changeRoam = true;
@@ -121,7 +121,7 @@ public class Enemy : MonoBehaviour
         changeRoam = true; //Allows new random roam to be created
     }
 
-    void StopMovement() //Stops movement
+    void StopMovement() //Stops movement. HALT!
     {
         movementAllowed = false;
     }
@@ -162,23 +162,40 @@ public class Enemy : MonoBehaviour
     {
         if (atkClass == "Melee")
         {
+            //Does a coroutine in order to prevent enemies from attacking every frame. Very fair, very balance.
+            attackAble = false;
+            StartCoroutine(AttackMelee());
             AttackMelee();
         }
 
         else if (atkClass == "Ranged")
         {
+            attackAble = false;
             AttackRanged();
         }
     }
 
-    void AttackMelee()
+    IEnumerator AttackMelee()
     {
-      //  player.GetComponent<thePlayer>().TakeDamage(atkDamage);
+        //Attack Melee once in range
+        player.GetComponent<thePlayer>().TakeDamage(atkDamage);
+        StartCoroutine(AttackCooldown());
+        yield return new WaitForSeconds(0.2f);
     }
 
-    void AttackRanged()
+    IEnumerator AttackRanged()
     {
-        //Shoot ranged projectiles
+        //Shoot ranged projectiles. Pewpew.
+
+
+        StartCoroutine(AttackCooldown());
+        yield return new WaitForSeconds(0.2f);
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        attackAble = true;
+        yield return new WaitForSeconds(0.4f);
     }
 
     public void TakeDamage(int damage)
@@ -191,7 +208,13 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            //In case health overshots to negative values and the UI decides to go insane. Totally did not cause headaches at 5am.
             health = 0;
+
+            //Adds exp to player
+            player.GetComponent<thePlayer>().AddToXP(1);
+
+            //Destroys enemy (Or sends to object pool) (To drown.)
             Destroy(this.gameObject);
         }
 
