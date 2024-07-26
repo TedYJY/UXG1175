@@ -337,10 +337,12 @@ MonoBehaviour:
   health: 100
   atkRange: 0
   atkClass: 
+  enemyProjectile: {fileID: 0}
   searchRadius: 5
   foundPlayer: 0
   roamTimer: 4
   roamRadius: 1.5
+  healthBar: {fileID: 0}
 --- !u!212 &1710032225
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14091,17 +14093,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3743821301464087207, guid: 6e8aa325767f85042ad70287b4e71c73, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 7291785547598574654, guid: 6e8aa325767f85042ad70287b4e71c73, type: 3}
       propertyPath: m_Name
       value: LesserArcaneMissile
-      objectReference: {fileID: 0}
-    - target: {fileID: 7291785547598574654, guid: 6e8aa325767f85042ad70287b4e71c73, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14242,6 +14236,10 @@ PrefabInstance:
       propertyPath: sceneCamera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2236805147567311114, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
+      propertyPath: projectileHolder
+      value: 
+      objectReference: {fileID: 690906759338663060, guid: 9b6305655f9fd5d45ba578b0ae2aa240, type: 3}
     - target: {fileID: 4132121660039175884, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
       propertyPath: m_FlipX
       value: 0

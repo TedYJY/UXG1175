@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718df984530e2a4aad80c20d5c98d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theDifficulty: {fileID: 11400000, guid: 71490d0d6ab2e54448756e3e5b8f1e1e, type: 2}
-  theSpawn: {fileID: 0}
+  theDifficulty: {fileID: 11400000, guid: 0da6b44996d5cfb4f9d42861c697f51e, type: 2}
+  theSpawn: {fileID: 1313797624951132814, guid: bf80b48d034f5f544b53d63c5ca5b021, type: 3}
   theSpawners: []
+  enemySpawnHandler: {fileID: 0}
+  thePlayer: {fileID: 0}
   currentWave: 0
   totalWave: 0
   maxActive: 0
@@ -57,3 +59,5 @@ MonoBehaviour:
   spawnRandom: {x: 0, y: 0}
   currentWaveTimer: 0
   waveActive: 0
+  totalElapsedTime: 0
+  savedTime: 0
