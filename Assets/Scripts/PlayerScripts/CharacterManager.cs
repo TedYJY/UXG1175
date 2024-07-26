@@ -18,7 +18,7 @@ public class CharacterManager : MonoBehaviour
 
     void Start()
     {
-        UpdateCharacter(selectedOption);
+        UpdateCharacter(selectedOption); //set default character selected to 0
     }
 
 
@@ -26,7 +26,7 @@ public class CharacterManager : MonoBehaviour
     {
         selectedOption++;
 
-        if (selectedOption >= characterData.CharacterCount) 
+        if (selectedOption >= characterData.CharacterCount) // if selected option is more than character count loop back to first char
         {
          selectedOption = 0;
         }
@@ -41,21 +41,17 @@ public class CharacterManager : MonoBehaviour
 
         if (selectedOption < 0)
         {
-            selectedOption = characterData .CharacterCount - 1;
+            selectedOption = characterData .CharacterCount - 1; // if selected option is more than character count loop back to last
         }
 
         UpdateCharacter(selectedOption);
     }
 
-    public void Play()
-    {
-        SceneManager.LoadScene("GameScene1");
-    }
 
     private void UpdateCharacter(int selectedOption)
     {
         PlayerTemplate character =  characterData.GetCharacterData(selectedOption); // calling character template to assign the SO to
-        theSprite.sprite = character.sprite;
+        theSprite.sprite = character.sprite; //update the sprite and text to display SO sprite and name
         characterText.text = character.characterName;
 
         CharacterSelectionManager.SelectedCharacterIndex = selectedOption; // saving the option chosen
