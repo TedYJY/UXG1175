@@ -173,7 +173,6 @@ public class thePlayer : MonoBehaviour
         DefaultWeaponScript projectileScript = projectileInstance.GetComponent<DefaultWeaponScript>(); // accessing the DefaultWeaponScript
 
         projectileScript.Player = this.gameObject; // the player reference
-
     }
 
 
