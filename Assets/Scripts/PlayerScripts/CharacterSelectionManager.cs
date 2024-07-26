@@ -10,4 +10,9 @@ public static class CharacterSelectionManager
         get;set;
     }
 
+    public static int SelectedDifficultyIndex // saves data from the difficulty manager script to use selected character
+
+    {
+        get; set;
+    }
 }

@@ -1,2 +1,3 @@
-DifficultyID,NumberOfSpawners,MaxActiveSpawners,MinActiveSpawners,NumberOfWaves,waveTimer
-201,8,4,2,5,10
+DifficultyID,DifficultyName,NumberOfSpawners,MaxActiveSpawners,MinActiveSpawners,NumberOfWaves,waveTimer
+201,Normal,8,4,2,5,10
+202,Hard,12,8,4,10,7

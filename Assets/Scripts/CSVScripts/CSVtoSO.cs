@@ -136,13 +136,14 @@ public class CSVtoSO : MonoBehaviour
 
             // grabbingthe attributes
             theDifficulty.difficultyID = int.Parse(splitData[0]);
-            theDifficulty.numberOfSpawners = int.Parse(splitData[1]);
-            theDifficulty.maxActiveSpawners = int.Parse(splitData[2]);
-            theDifficulty.minActiveSpawners = int.Parse(splitData[3]);
-            theDifficulty.numberOfWaves = int.Parse(splitData[4]);
-            theDifficulty.waveTimer = int.Parse(splitData[5]);
+            theDifficulty.difficultyName = splitData[1];
+            theDifficulty.numberOfSpawners = int.Parse(splitData[2]);
+            theDifficulty.maxActiveSpawners = int.Parse(splitData[3]);
+            theDifficulty.minActiveSpawners = int.Parse(splitData[4]);
+            theDifficulty.numberOfWaves = int.Parse(splitData[5]);
+            theDifficulty.waveTimer = int.Parse(splitData[6]);
 
-            AssetDatabase.CreateAsset(theDifficulty, $"Assets/SO/Difficulty/{theDifficulty.difficultyID}.asset"); // telling program where to save
+            AssetDatabase.CreateAsset(theDifficulty, $"Assets/SO/Difficulty/{theDifficulty.difficultyName}.asset"); // telling program where to save
         }
 
         AssetDatabase.SaveAssets();

@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject enemySpawnHandler;
 
+    public Difficulty[] difficultyList;
+
     public GameObject thePlayer;
 
     // Variables from difficulty script
@@ -38,6 +40,11 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        int selectedDifficulryIndex = CharacterSelectionManager.SelectedDifficultyIndex ; //getting selected difficulty index from selection manager
+
+        theDifficulty = difficultyList[selectedDifficulryIndex];
+
+
         // assignning from scriptableObj
         amountToSpawn = theDifficulty.numberOfSpawners;
         totalWave = theDifficulty.numberOfWaves;

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Difficulty : ScriptableObject //inherit scriptable object
 {
     public int difficultyID;
+    public string difficultyName;
     public int numberOfSpawners;
     public int maxActiveSpawners;
     public int minActiveSpawners;
