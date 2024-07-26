@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Written by: Ryan Jacob && Tedmund Yap
 public class LevelManager : MonoBehaviour
@@ -37,6 +38,10 @@ public class LevelManager : MonoBehaviour
     public int savedTime;
     private float elapsedTime;
 
+    public int enemiesRemaining;
+
+    public GameObject lastWave;
+    public GameObject completion;
 
     void Start()
     {
@@ -52,7 +57,7 @@ public class LevelManager : MonoBehaviour
         maxActive = theDifficulty.maxActiveSpawners;
         minActive = theDifficulty.minActiveSpawners;
 
-        currentWave = 1;
+        currentWave = 0;
         currentWaveTimer = waveTimer;
 
         for (int i = 0; i < amountToSpawn; i++) //read csv on how many to spawn and which one to spawn and add it to the list of spawners
@@ -66,7 +71,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator SpawnWaves()
     {
-        while (waveActive && currentWave <= totalWave)
+        while (waveActive && currentWave < totalWave)
         {
             // wait for the current wave timer
             yield return new WaitForSeconds(currentWaveTimer);
@@ -78,9 +83,11 @@ public class LevelManager : MonoBehaviour
             {
                 SpawnRandomPoints();
                 yield return new WaitForSeconds(spawnDelay); // Optional delay between each spawner spawn
-            }
+                
 
+            }
             currentWave++;
+
         }
 
         waveActive = false; // disable wave spawning after all waves are spawned
@@ -109,6 +116,7 @@ public class LevelManager : MonoBehaviour
         elapsedTime += Time.deltaTime; // Accumulate time in float
         totalElapsedTime = (int)elapsedTime; //timer to keep track of play time
 
+
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -121,7 +129,33 @@ public class LevelManager : MonoBehaviour
             savedTime = totalElapsedTime;
         }
 
+        enemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;//detect how many enemies in the scene
 
+
+
+        if (currentWave >= totalWave && enemiesRemaining == 0 )
+        {
+            completion.SetActive(true);
+            lastWave.SetActive(false);
+            StartCoroutine(waitTimer());
+            SceneManager.LoadScene("EndGame");
+        }
+
+        if (currentWave == totalWave -1)
+        {
+            lastWave.SetActive(true);
+        }
 
     }
+
+    IEnumerator waitTimer()
+    {
+        yield return new WaitForSeconds(5f);
+    }
+
+    
+
+    
+
+    
 }

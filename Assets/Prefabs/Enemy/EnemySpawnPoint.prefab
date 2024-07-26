@@ -97,5 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea526e4a14ba484bbf1783f5ef76f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnHandler: {fileID: 0}
+  spawnHandler: {fileID: 5407732629435354693, guid: 83541ed0afb3d164494e561d311f31f9, type: 3}
   lvl: 1

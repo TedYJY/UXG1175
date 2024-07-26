@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public Text expText;
     public Text timeText;
     public Text playerLvl;
+    public Text enemiesRemaining;
 
 
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class UIManager : MonoBehaviour
         expText.text = string.Format("Exp: {0}/{1}", characterInfo.currentExp, characterInfo.expToLevelUp);
         timeText.text = "Time Elapsed: " + gameManager.totalElapsedTime.ToString();
         playerLvl.text = "Player Level: " + characterInfo.startingLevel.ToString();
+        enemiesRemaining.text = "Enemies remaining: " + gameManager.enemiesRemaining.ToString();
 
         int minutes = gameManager.totalElapsedTime / 60; //calculating playtime
         int seconds = gameManager.totalElapsedTime % 60;

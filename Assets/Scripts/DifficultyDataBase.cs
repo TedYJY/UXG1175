@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// by Ryan Jacob
 [CreateAssetMenu(fileName = "NewDifficultyDataBase", menuName = "DifficultyDataBase")]
 public class DifficultyDataBase : ScriptableObject
 {

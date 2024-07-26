@@ -47,7 +47,10 @@ MonoBehaviour:
   theDifficulty: {fileID: 11400000, guid: 0da6b44996d5cfb4f9d42861c697f51e, type: 2}
   theSpawn: {fileID: 1313797624951132814, guid: bf80b48d034f5f544b53d63c5ca5b021, type: 3}
   theSpawners: []
-  enemySpawnHandler: {fileID: 0}
+  enemySpawnHandler: {fileID: 5407732629435354693, guid: 83541ed0afb3d164494e561d311f31f9, type: 3}
+  difficultyList:
+  - {fileID: 11400000, guid: 612495f07a2799349ae5d4ab60041e4f, type: 2}
+  - {fileID: 11400000, guid: ee525818f84ae4a4ebba6da8ccccc7c1, type: 2}
   thePlayer: {fileID: 0}
   currentWave: 0
   totalWave: 0

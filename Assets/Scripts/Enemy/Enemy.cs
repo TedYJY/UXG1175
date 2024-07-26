@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     private GameObject player; //For accessing scripts, and referencing
+    
+    public GameObject levelManager;
+    LevelManager theLevelManager;
+
     public float moveSpeed; //Speed of enemy
     public int atkDamage; //Damage of enemy attack
     public float health; //Health of enemy
@@ -16,6 +20,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private GameObject enemyProjectile;
+
+
 
     [Header("Searching Variables")]
     [SerializeField]
@@ -206,6 +212,7 @@ public class Enemy : MonoBehaviour
 
             //Destroys enemy (Or sends to object pool) (To drown.)
             Destroy(this.gameObject);
+
         }
 
     }
