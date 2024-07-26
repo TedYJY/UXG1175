@@ -13995,6 +13995,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MagicStones
       objectReference: {fileID: 0}
+    - target: {fileID: 7150210219144436832, guid: f4e463c3a68f3f14194a159a5e8c8379, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 7150210219144436832, guid: f4e463c3a68f3f14194a159a5e8c8379, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7416002654960626319, guid: f4e463c3a68f3f14194a159a5e8c8379, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.88

@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     
     thePlayer characterInfo;
-    EnemySpawnPoints gameManager;
+    LevelManager gameManager;
 
     public GameObject thePlayer; //reference to gameObjects in scene
     public GameObject WaveSystem;
@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         characterInfo = thePlayer.GetComponent<thePlayer>();
-        gameManager = WaveSystem.GetComponent<EnemySpawnPoints>();
+        gameManager = WaveSystem.GetComponent<LevelManager>();
     }
 
     // Update is called once per frame

@@ -153,6 +153,11 @@ public class Enemy : MonoBehaviour
         {
             attackCooldownTimer += Time.fixedDeltaTime;
 
+            if (Vector2.Distance(transform.position, player.transform.position) <= searchRadius / 1.2f)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1 * moveSpeed * Time.deltaTime);
+            }
+
             if (atkClass == "Melee" && attackCooldownTimer >= attackCooldownMelee)
             {
                 AttackMelee();

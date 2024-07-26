@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Written by: Ryan Jacob && Tedmund Yap
-public class EnemySpawnPoints : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     [SerializeField] Difficulty theDifficulty;
     public GameObject theSpawn;
@@ -102,7 +102,7 @@ public class EnemySpawnPoints : MonoBehaviour
         elapsedTime += Time.deltaTime; // Accumulate time in float
         totalElapsedTime = (int)elapsedTime; //timer to keep track of play time
 
-        // Optional: Check current state, debug info, etc.
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log($"Wave {currentWave} Timer: {currentWaveTimer}");
