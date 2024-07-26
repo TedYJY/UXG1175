@@ -49,7 +49,7 @@ public class CharacterManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("GameScene1");
     }
 
     private void UpdateCharacter(int selectedOption)
