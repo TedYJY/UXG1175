@@ -14,8 +14,13 @@ public class MeleeWeaponTest : MonoBehaviour
 
     public Weapons[] meleeWeaponsList; // array of all possible weapons
 
-    public GameObject theSprite;
+    public GameObject theSprite; // sprite attached to the actual weapon object
+
+    MeleeWeaponHandler weaponHandler; //actual weapon damage;
+
     public bool isAccessed = false;
+
+    public int thisWeaponDamage;
 
     public void SwapWeapon(int weaponID) // called from item player script
     {
@@ -25,10 +30,13 @@ public class MeleeWeaponTest : MonoBehaviour
             {
                 weapons = weapon; // assign the weapon So when item is picked up based on ID
 
+                thisWeaponDamage = weapons.damageOutput;
                
                SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
 
                spriteRenderer.sprite = weapon.sprites;
+
+                PassWeaponDamage(thisWeaponDamage);
 
             }
         
@@ -44,6 +52,13 @@ public class MeleeWeaponTest : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler (0,0, transform.rotation.eulerAngles.z + (weapons.speed * Time.deltaTime)); //rotating the melee weapon
     
+    }
+
+    public void PassWeaponDamage(int weaponDamage)
+    {
+        MeleeWeaponHandler theWeapon = theSprite.GetComponent<MeleeWeaponHandler>();
+
+        theWeapon.GetDamage(weaponDamage);
     }
 
 }

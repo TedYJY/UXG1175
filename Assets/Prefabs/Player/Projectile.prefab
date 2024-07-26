@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1684243177, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
+  m_Sprite: {fileID: 1183145247, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,10 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3231043c7413c424ca5e533a90f09021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projWeaponToSwap: {fileID: 11400000, guid: a611eac79e83aa845bd0a52caa08a254, type: 2}
+  projWeaponToSwap: {fileID: 11400000, guid: 59cccdda0d4791e46bece59d2c79bbb6, type: 2}
   theSprite: {fileID: 7137010060227732102}
   projectileWeaponList:
   - {fileID: 11400000, guid: 59cccdda0d4791e46bece59d2c79bbb6, type: 2}
   - {fileID: 11400000, guid: 1a3279dd23da94947b8acdc7e0ef1a4c, type: 2}
   - {fileID: 11400000, guid: a611eac79e83aa845bd0a52caa08a254, type: 2}
-  target: {x: -4.489909, y: -8.690192}
+  target: {x: 0.9958658, y: -3.593132}

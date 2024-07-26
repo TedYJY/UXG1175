@@ -111,8 +111,6 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, randomRoam, moveSpeed * Time.deltaTime); //Move to randomRoam
         }
 
-
-
     }
 
     void Search()

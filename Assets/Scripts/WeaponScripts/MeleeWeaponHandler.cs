@@ -8,6 +8,8 @@ public class MeleeWeaponHandler : MonoBehaviour
     [SerializeField]
     Weapons weapon;
 
+    public int weaponDamage;
+
     Enemy theEnemy;
 
     // Update is called once per frame
@@ -15,7 +17,12 @@ public class MeleeWeaponHandler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().TakeDamage(weapon.damageOutput);
+            collision.GetComponent<Enemy>().TakeDamage(weaponDamage); //pass to enemy script to deal damage
         }
+    }
+
+    public void GetDamage(int damage)
+    {
+        weaponDamage = damage;
     }
 }

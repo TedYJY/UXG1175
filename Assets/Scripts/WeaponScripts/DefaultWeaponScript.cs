@@ -164,5 +164,12 @@ public class DefaultWeaponScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Enemy>().TakeDamage(damage + dmgInc); //pass to enemy script to deal damage
+        }
     }
+
+   
+
 }

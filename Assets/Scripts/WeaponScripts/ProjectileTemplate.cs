@@ -14,6 +14,8 @@ public class ProjectileTemplate : MonoBehaviour
 
     public Vector2 target;
 
+    public int projectileDamage;
+
     public void SwapProjectile(int projWeaponID)
     {
         foreach (var projWeapon in projectileWeaponList)
@@ -25,7 +27,8 @@ public class ProjectileTemplate : MonoBehaviour
                 SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
                 projWeaponToSwap = projWeapon;
                 spriteRenderer.sprite = projWeapon.sprites;
-               
+
+                projectileDamage = projWeapon.damageOutput;
             }
         }
     }
@@ -47,4 +50,13 @@ public class ProjectileTemplate : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Enemy>().TakeDamage(projectileDamage); //pass to enemy script to deal damage
+        }
+    }
+
 }
