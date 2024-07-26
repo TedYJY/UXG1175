@@ -435,6 +435,7 @@ MonoBehaviour:
   health: 4
   atkRange: 6
   atkClass: Ranged
+  enemyProjectile: {fileID: 4794354264771436297, guid: 2b4cb1ee7a422c04694a5949aa118393, type: 3}
   searchRadius: 5
   foundPlayer: 1
   roamTimer: 4

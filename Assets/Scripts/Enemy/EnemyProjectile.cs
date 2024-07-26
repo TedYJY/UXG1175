@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyProjectile : MonoBehaviour
 {
@@ -19,27 +20,29 @@ public class EnemyProjectile : MonoBehaviour
     private bool changingColor;
 
     public Vector3 destination;
+
+    private Vector3 normalizeDirection;
+
+    public int projectileDamage;
     
     void Start()
     {
         StartCoroutine(ChangeColor());
+
+        normalizeDirection = (destination - transform.position).normalized;
+
+        Invoke("Destroy", 5f);
     }
 
     void Update()
     {
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
-        
-
     }
 
     void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, destination, projectileSpeed * Time.deltaTime);
+        transform.position += normalizeDirection * projectileSpeed * Time.deltaTime;
 
-        if (transform.position == destination)
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     private IEnumerator ChangeColor()
@@ -66,4 +69,17 @@ public class EnemyProjectile : MonoBehaviour
         changingColor = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.gameObject.GetComponent<thePlayer>().TakeDamage(projectileDamage);
+            Destroy(this.gameObject);
+        }
+    }
+
+    void Destroy()
+    {
+        Destroy(this.gameObject);
+    }
 }

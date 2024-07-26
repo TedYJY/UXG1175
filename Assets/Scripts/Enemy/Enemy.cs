@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     public float atkRange; //Range of enemy attack
     public string atkClass; //Class of enemy
 
+    [SerializeField]
+    private GameObject enemyProjectile;
+
     [Header("Searching Variables")]
     [SerializeField]
     private float searchRadius = 5f; //Search radius of the enemy, if player enters this radius, the enemy starts hunting
@@ -32,7 +35,9 @@ public class Enemy : MonoBehaviour
 
     private bool movementAllowed; //If enemy is able to move
 
-    private bool attackAble; //If enemy is able to attack
+    private float attackCooldownTimer;
+    private float attackCooldownMelee;
+    private float attackCooldownRanged;
 
     [SerializeField]
     private Image healthBar; //For health bar UI
@@ -41,6 +46,9 @@ public class Enemy : MonoBehaviour
     {
         StartMovement(); //Starts roaming or moving to player
         player = GameObject.FindWithTag("Player"); //Moves to player
+        attackCooldownMelee = 1.0f;
+        attackCooldownRanged = 2.0f;
+        attackCooldownTimer = attackCooldownMelee;
 
         this.GetComponent<CircleCollider2D>().radius = atkRange;
     }
@@ -145,57 +153,36 @@ public class Enemy : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            if (attackAble == true)
+            attackCooldownTimer += Time.fixedDeltaTime;
+
+            if (atkClass == "Melee" && attackCooldownTimer >= attackCooldownMelee)
             {
-                AttemptAttack();
+                AttackMelee();
+                attackCooldownTimer = 0;
+            }
+
+            if (atkClass == "Ranged" && attackCooldownTimer >= attackCooldownRanged)
+            {
+                AttackRanged();
+                attackCooldownTimer = 0;
             }
         }
 
-        if (atkClass == "Ranged" && Vector2.Distance(transform.position, player.transform.position) < atkRange / 1.25f)
-        {
-            //For ranged enemies to run from player when they approach, for more... liveliness! ¯\_(o_O)_/¯
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, (float)(-0.5 * moveSpeed) * Time.deltaTime);
-        }
+        
     }
 
-    void AttemptAttack()
+    void AttackMelee()
     {
-        if (atkClass == "Melee")
-        {
-            //Does a coroutine in order to prevent enemies from attacking every frame. Very fair, very balance.
-            attackAble = false;
-            StartCoroutine(AttackMelee());
-            AttackMelee();
-        }
-
-        else if (atkClass == "Ranged")
-        {
-            attackAble = false;
-            AttackRanged();
-        }
-    }
-
-    IEnumerator AttackMelee()
-    {
-        //Attack Melee once in range
         player.GetComponent<thePlayer>().TakeDamage(atkDamage);
-        StartCoroutine(AttackCooldown());
-        yield return new WaitForSeconds(0.2f);
     }
 
-    IEnumerator AttackRanged()
+    void AttackRanged()
     {
         //Shoot ranged projectiles. Pewpew.
-
-
-        StartCoroutine(AttackCooldown());
-        yield return new WaitForSeconds(0.2f);
-    }
-
-    IEnumerator AttackCooldown()
-    {
-        attackAble = true;
-        yield return new WaitForSeconds(0.4f);
+        GameObject temp = Instantiate(enemyProjectile, transform.position, transform.rotation);
+        EnemyProjectile projectile = temp.GetComponent<EnemyProjectile>();
+        projectile.projectileDamage = atkDamage;
+        projectile.destination = player.transform.position;
     }
 
     public void TakeDamage(int damage)
