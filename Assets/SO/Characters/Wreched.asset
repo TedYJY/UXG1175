@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterID: 102
   characterName: Wreched
-  movementSpeed: 10
+  movementSpeed: 8
   health: 80
   maxHealth: 80
   startingLevel: 1
   maxLevel: 10
   startingExp: 0
   currentExp: 0
-  expToLevelUp: 800
+  expToLevelUp: 50
   expLevel: 0
   expMultiplier: 0.1
-  sprite: {fileID: -2080483208, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
+  sprite: {fileID: 0}
   spriteID: 88

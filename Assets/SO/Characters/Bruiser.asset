@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterID: 101
   characterName: Bruiser
-  movementSpeed: 5
+  movementSpeed: 6
   health: 150
   maxHealth: 150
   startingLevel: 1
   maxLevel: 10
   startingExp: 0
   currentExp: 0
-  expToLevelUp: 1000
+  expToLevelUp: 80
   expLevel: 0
   expMultiplier: 0.2
-  sprite: {fileID: -816587444, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
+  sprite: {fileID: 0}
   spriteID: 112

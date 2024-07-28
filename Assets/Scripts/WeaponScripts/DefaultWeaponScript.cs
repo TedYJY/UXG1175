@@ -65,10 +65,10 @@ public class DefaultWeaponScript : MonoBehaviour
         targetPos = callingPlayer.saveClicked; // Set target position from player
         playerLevel = callingPlayer.playerLevel; // Get player level
 
-        // Calculate the direction to move towards the target position
+        // calculate the direction to move towards the target position
         theDirection = (targetPos - (Vector2)transform.position).normalized;
 
-        // Access the projectile's sprite renderer and assign the sprite
+        // access the projectile's sprite renderer and assign the sprite
         SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = assignedSprite;
 
@@ -82,7 +82,7 @@ public class DefaultWeaponScript : MonoBehaviour
 
         if (isLevelingUp)
         {
-            //ApplyUpgrade();
+            //applyUpgrade();
             isLevelingUp = false; // Prevent continuous upgrades
         }
 

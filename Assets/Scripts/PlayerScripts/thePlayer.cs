@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -116,7 +117,10 @@ public class thePlayer : MonoBehaviour
     void Update()
     {
 
-        
+        if (Input.GetKeyDown(KeyCode.L)) 
+        {
+            ReloadCurrentScene();
+        }
 
     }
 
@@ -197,6 +201,7 @@ public class thePlayer : MonoBehaviour
         {
             //End Game
             Destroy(this.gameObject);
+            SceneManager.LoadScene("CharacterSelect");
         }
     }
 
@@ -276,6 +281,12 @@ public class thePlayer : MonoBehaviour
                 hp += itemValue;
                 Debug.Log("healed");
 
+                if (hp > maxHP)  // enable cap to ensure hp does not exceed
+                {
+                    hp = maxHP;
+                }
+                Debug.Log("healed");
+
             }
             else if (type == "speed") //update player speed
             {
@@ -350,6 +361,12 @@ public class thePlayer : MonoBehaviour
             }
 
         }
+    }
+
+    public void ReloadCurrentScene()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;  // get the name of the current active scene
+        SceneManager.LoadScene(currentScene);
     }
 
 }
