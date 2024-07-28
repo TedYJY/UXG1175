@@ -19,6 +19,8 @@ MonoBehaviour:
   speakerDialogue: Here grab this equipment and get ready to fight! They'll be coming
     in waves so grab what you can from them!
   speakerSprite: {fileID: -40774067, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  listenerName: You
+  listenerSprite: {fileID: -2080483208, guid: c405f86b031d72544a4edc06d728b241, type: 3}
   dialogueChoiceIDs:
   - -1
   hasChoice: 0

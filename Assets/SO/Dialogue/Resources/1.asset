@@ -20,6 +20,8 @@ MonoBehaviour:
     the border right? Walked right into that monster ambush but I managed to get
     you out in time."
   speakerSprite: {fileID: -40774067, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  listenerName: You
+  listenerSprite: {fileID: -2080483208, guid: c405f86b031d72544a4edc06d728b241, type: 3}
   dialogueChoiceIDs:
   - 1.1
   - 1.2

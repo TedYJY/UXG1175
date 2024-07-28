@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyID: enemy3
   enemyName: Mage
-  enemyHP: 4
+  enemyHP: 40
   enemyDMG: 3
-  enemyMoveSpeed: 1
-  enemyRange: 6
+  enemyMoveSpeed: 5
+  enemyRange: 10
   enemyClass: Ranged
   enemySprite: {fileID: -1780371570, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  enemyDropChance: 0.3
+  enemyExpAmt: 2

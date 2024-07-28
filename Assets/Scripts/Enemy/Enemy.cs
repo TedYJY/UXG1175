@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     public float health; //Health of enemy
     public float atkRange; //Range of enemy attack
     public string atkClass; //Class of enemy
+    public float dropChance; // Item dropChance for enemy
+    public int expAmt; //Amount of exp for enemy
 
     [SerializeField]
     private GameObject enemyProjectile;
@@ -34,6 +36,18 @@ public class Enemy : MonoBehaviour
     private float roamTimer = 4; //Timer before deciding to roam to new location
 
     [SerializeField]
+    private float minXRoam; //Left boundary of map
+
+    [SerializeField]
+    private float maxXRoam; //Right boundary of map
+
+    [SerializeField]
+    private float minYRoam; //Bottom boundary of map
+
+    [SerializeField]
+    private float maxYRoam; //Top boundary of map
+
+    [SerializeField]
     private float roamRadius = 1.5f; //Maximum range of how far enemy will roam
 
     private Vector2 randomRoam; //Location of where to roam
@@ -41,9 +55,9 @@ public class Enemy : MonoBehaviour
 
     private bool movementAllowed; //If enemy is able to move
 
-    private float attackCooldownTimer;
-    private float attackCooldownMelee;
-    private float attackCooldownRanged;
+    private float attackCooldownTimer = 3f; //Base cooldown amount for enemies
+    private float attackCooldownMelee = 1.0f; //Additional cooldown timer for melee units
+    private float attackCooldownRanged = 3f; //Addtional cooldown timer for ranged units
 
     [SerializeField]
     private Image healthBar; //For health bar UI
@@ -52,11 +66,8 @@ public class Enemy : MonoBehaviour
     {
         StartMovement(); //Starts roaming or moving to player
         player = GameObject.FindWithTag("Player"); //Moves to player
-        attackCooldownMelee = 1.0f;
-        attackCooldownRanged = 2.0f;
-        attackCooldownTimer = attackCooldownMelee;
-
         this.GetComponent<CircleCollider2D>().radius = atkRange;
+        
     }
 
     void Update()
@@ -75,7 +86,7 @@ public class Enemy : MonoBehaviour
         //For testing enemy HP/clearing enemies
         if (Input.GetKeyDown(KeyCode.P))
         {
-            TakeDamage(1);
+            TakeDamage(20);
         }
 
     }
@@ -95,11 +106,17 @@ public class Enemy : MonoBehaviour
             //Creates random values +- from current position, and assigns to randomRoam (Like roaming sheep but better! Probably :D )
             float randomX = transform.position.x + Random.Range(roamRadius, -roamRadius);
             float randomY = transform.position.y + Random.Range(roamRadius, -roamRadius);
+
+            if (randomX <= minXRoam || randomX >= maxXRoam || randomY <= minYRoam || randomY >= maxYRoam)
+            {
+                return;
+            }
+
             randomRoam = new Vector2(randomX, randomY);
 
             //To prevent constant changing of randomRoam
             changeRoam = false;
-            roamTimer = 4;
+            roamTimer = Random.Range(2, 6);
             //Debug.Log("Finding new direction, moving to " +  randomRoam);
         }
 
@@ -142,14 +159,14 @@ public class Enemy : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            StopMovement();
+            StopMovement(); //Stops movement when the player is in the enemy's attack range
         }
     }
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.tag == "Player")
         {
-            StartMovement();
+            StartMovement(); //Starts movement when outside of their attack range
         }
     }
 
@@ -157,23 +174,23 @@ public class Enemy : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            attackCooldownTimer += Time.fixedDeltaTime;
-
-            if (Vector2.Distance(transform.position, player.transform.position) <= searchRadius / 1.2f)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1 * moveSpeed * Time.deltaTime);
-            }
+            attackCooldownTimer += Time.fixedDeltaTime; // Timer for the cooldown of attacks to prevent
 
             if (atkClass == "Melee" && attackCooldownTimer >= attackCooldownMelee)
             {
                 AttackMelee();
-                attackCooldownTimer = 0;
+                attackCooldownTimer = 0; //Starts cooldown
             }
 
             if (atkClass == "Ranged" && attackCooldownTimer >= attackCooldownRanged)
             {
                 AttackRanged();
-                attackCooldownTimer = 0;
+                attackCooldownTimer = 0; //Starts cooldown
+            }
+
+            if (Vector2.Distance(transform.position, player.transform.position) <= searchRadius / 1.4f)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1 * moveSpeed * Time.deltaTime); //For ranged units to start running when the player approaches them because... I would also run if someone ran at me with flying knives
             }
         }
 
@@ -182,7 +199,7 @@ public class Enemy : MonoBehaviour
 
     void AttackMelee()
     {
-        player.GetComponent<thePlayer>().TakeDamage(atkDamage);
+        player.GetComponent<thePlayer>().TakeDamage(atkDamage); //Directly attack the player. Bonk.
     }
 
     void AttackRanged()
@@ -196,11 +213,12 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("enemy took damage" + damage);
+        foundPlayer = true; //For roaming enemies
+
         health -= damage;
 
         //Updates UI for health bar
-        healthBar.fillAmount = health / 10f;
+        healthBar.fillAmount = health / 100f; //Assume that base HP of enemies have to be above 10 and below 100 or else the UI will glitch out
 
         if (health <= 0)
         {
@@ -208,11 +226,37 @@ public class Enemy : MonoBehaviour
             health = 0;
 
             //Adds exp to player
-            player.GetComponent<thePlayer>().AddToXP(1);
+            switch (atkClass)
+            {
+                case "Melee":
+                    player.GetComponent<thePlayer>().AddToXP(1);
+                    break;
+
+                case "Ranged":
+                    player.GetComponent<thePlayer>().AddToXP(2);
+                    break;
+
+                default:
+                    break;
+            }
+
+            DropItem(); //Attempts to drop an item
 
             //Destroys enemy (Or sends to object pool) (To drown.)
             Destroy(this.gameObject);
 
+        }
+
+    }
+
+    void DropItem()
+    {
+        float percentageChance = dropChance * 100;
+        int random = Random.Range(0, 100);
+
+        if (random <= percentageChance)
+        {
+            Instantiate(healthBar, transform.position, transform.rotation);
         }
 
     }

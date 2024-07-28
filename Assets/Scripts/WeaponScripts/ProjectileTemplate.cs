@@ -21,7 +21,7 @@ public class ProjectileTemplate : MonoBehaviour
         foreach (var projWeapon in projectileWeaponList)
         {
 
-            Debug.Log("swappingProjectile");
+            //Debug.Log("swappingProjectile");
             if (projWeaponID == projWeapon.weaponID)  //swapping attributes
             {
                 SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();

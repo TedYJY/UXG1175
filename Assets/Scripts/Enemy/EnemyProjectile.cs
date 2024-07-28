@@ -24,12 +24,46 @@ public class EnemyProjectile : MonoBehaviour
     private Vector3 normalizeDirection;
 
     public int projectileDamage;
+
+    private thePlayer playerScript;
     
     void Start()
     {
         StartCoroutine(ChangeColor());
 
+        playerScript = GameObject.FindWithTag("Player").GetComponent<thePlayer>();
+
         normalizeDirection = (destination - transform.position).normalized;
+        
+        switch (playerScript.xAxis)
+        {
+            case > 0:
+                normalizeDirection.x += Random.Range(0.5f, 1.25f);
+                break;
+
+            case < 0:
+                normalizeDirection.x -= Random.Range(0.5f, 1.25f);
+                break;
+
+            default:
+                break;
+        }
+
+        switch (playerScript.yAxis)
+        {
+            case > 0:
+                normalizeDirection.y += Random.Range(0.5f, 1.25f);
+                break;
+
+            case < 0:
+                normalizeDirection.y -= Random.Range(0.5f, 1.25f);
+                break;
+
+            default:
+                break;
+        }
+
+        normalizeDirection = normalizeDirection.normalized;
 
         Invoke("Destroy", 5f);
     }

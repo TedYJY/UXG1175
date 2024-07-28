@@ -28,6 +28,8 @@ public class EnemySpawner : MonoBehaviour
         enemyScript.health = enSO.enemyHP;
         enemyScript.atkRange = enSO.enemyRange;
         enemyScript.atkClass = enSO.enemyClass;
+        enemyScript.dropChance = enSO.enemyDropChance;
+        enemyScript.expAmt = enSO.enemyExpAmt;
 
         //Set spawned enemy to instantly go after player
         enemyScript.foundPlayer = true;

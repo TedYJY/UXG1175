@@ -23,6 +23,7 @@ public class DefaultWeaponScript : MonoBehaviour
     public int speed;
     public int defaultCooldown;
     public Sprite assignedSprite;
+    private int maxHits;
 
     public int startingDamage;
     public int startingSpeed;
@@ -167,6 +168,12 @@ public class DefaultWeaponScript : MonoBehaviour
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.GetComponent<Enemy>().TakeDamage(damage + dmgInc); //pass to enemy script to deal damage
+
+            if (maxHits++ >= 4)
+            {
+                maxHits = 0;
+                Destroy(gameObject);
+            }
         }
     }
 

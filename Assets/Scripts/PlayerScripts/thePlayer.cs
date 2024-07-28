@@ -107,6 +107,7 @@ public class thePlayer : MonoBehaviour
 
         defaultProjectile = defaultWeapon.GetComponent<DefaultWeaponScript>();
         canFire = true; //ensureing player can always fire on start of game
+        cooldownDuration = 3; //Ensures player isn't able to fire twice at the start of the game
         playerLevel = startingLevel; //ensurs player level is set to default
         
     }
@@ -115,13 +116,14 @@ public class thePlayer : MonoBehaviour
     void Update()
     {
 
-        InputManagement();
+        
 
     }
 
     private void FixedUpdate()
     {
         Move();
+        InputManagement();
     }
 
     void InputManagement()
@@ -139,8 +141,9 @@ public class thePlayer : MonoBehaviour
             saveClicked = mousePos;// saving mouse click last pos
             FireProjectile(); //fire projectile
             StartCoroutine(weaponCoolDown()); //initiate cooldown coroutine
+
         }
-        else
+        else if (Input.GetMouseButtonDown(0) && canFire == false)
         {
             //Debug.Log("Cant Fire now");
         }
@@ -168,6 +171,9 @@ public class thePlayer : MonoBehaviour
 
     void FireProjectile() 
     {
+
+        Debug.Log("Firing projectile");
+
         GameObject projectileInstance = Instantiate(defaultWeapon, transform.position, Quaternion.identity);  // instantiate the projectile at the player's position
 
         DefaultWeaponScript projectileScript = projectileInstance.GetComponent<DefaultWeaponScript>(); // accessing the DefaultWeaponScript

@@ -30,9 +30,9 @@ public class DialogueCSVtoSO : MonoBehaviour
 
 
             //Checks if all data entries are filled
-            if (splitLines.Length != 7)
+            if (splitLines.Length != 9)
             {
-                Debug.Log(allLines[i] + " does not have all 7 values!");
+                Debug.Log(allLines[i] + " does not have all 9 values!");
 
                 //Returns back if all data entries are not filled for "Mental Stability" purposes
                 return;
@@ -46,9 +46,10 @@ public class DialogueCSVtoSO : MonoBehaviour
             dialogueSO.dialogueGroupID = splitLines[1];
             dialogueSO.speakerID = int.Parse(splitLines[2]);
             dialogueSO.speakerName = splitLines[3];
-            dialogueSO.speakerDialogue = splitLines[4];
+            dialogueSO.listenerName = splitLines[4];
+            dialogueSO.speakerDialogue = splitLines[5];
 
-            string[] dialogueChoicesSplit = splitLines[6].Split(new char[] { '#' });
+            string[] dialogueChoicesSplit = splitLines[8].Split(new char[] { '#' });
 
             //Checks if dialogue has choices
             dialogueSO.dialogueChoiceIDs = dialogueChoicesSplit;
@@ -58,7 +59,8 @@ public class DialogueCSVtoSO : MonoBehaviour
 
 
             //Uses number in CSV to get specific sprite
-            dialogueSO.speakerSprite = sprites[int.Parse(splitLines[5])];
+            dialogueSO.speakerSprite = sprites[int.Parse(splitLines[6])];
+            dialogueSO.listenerSprite = sprites[int.Parse(splitLines[7])];
 
             //Creates a new SO using AssetDatabase CreateAsset function
             //Ensure that there is a folder under Assets labelled "Enemies", else an error will show up

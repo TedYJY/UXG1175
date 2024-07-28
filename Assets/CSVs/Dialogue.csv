@@ -1,7 +1,15 @@
-﻿dialogueID,dialogueGroupID,speakerID,speakerName,speakerDialogue,speakerSprite,dialogueChoiceIDs
-dialogue1,1,2,Folar,Hey you. You’re finally awake. You were trying to cross the border right? Walked right into that monster ambush but I managed to get you out in time.,84,1.1#1.2
-dialogue2,1.1,1,You,I can't remember… thanks for getting me out though.,88,1.11
-dialogue3,1.2,1,You,Monsters? Where am I?,88,1.21
-dialogue4,1.11,2,Folar,No problem... wait… Did you hear that? The monsters are coming back for seconds!,84,1.3
-dialogue5,1.21,2,Folar,That doesn't matter all you need to know now is that those monsters? They are coming back again!,84,1.3
-dialogue6,1.3,2,Folar,Here grab this equipment and get ready to fight! They'll be coming in waves so grab what you can from them!,84,-1
+﻿dialogueID,dialogueGroupID,speakerID,speakerName,listenerName,speakerDialogue,speaker,listenerSprite,dialogueChoiceIDs
+dialogue1,1,2,Folar,You,Hey you. You’re finally awake. You were trying to cross the border right? Walked right into that monster ambush but I managed to get you out in time.,84,88,1.1#1.2
+dialogue2,1.1,1,You,Folar,I can't remember… thanks for getting me out though.,88,84,1.11
+dialogue3,1.2,1,You,Folar,Monsters? Where am I?,88,84,1.21
+dialogue4,1.11,2,Folar,You,No problem... wait… Did you hear that? The monsters are coming back for seconds!,84,88,1.3
+dialogue5,1.21,2,Folar,You,That doesn't matter all you need to know now is that those monsters? They are coming back again!,84,88,1.3
+dialogue6,1.3,2,Folar,You,Here grab this equipment and get ready to fight! They'll be coming in waves so grab what you can from them!,84,88,-1
+dialogue7,2,1,You,Folar,I think that's the last of them… Are you there Folar?,88,84,2.1
+dialogue8,2.1,2,Folar,You,Yes. You handle yourself very well! Now let's keep moving,84,88,2.2#2.3
+dialogue9,2.2,1,You,Folar,Wait. Where are we even going?,88,84,2.21
+dialogue10,2.3,1,You,Folar,How did these enemies even come about?,88,84,2.31
+dialogue11,2.21,2,Folar,You,We need to go to the next area ahead of us. There are more monsters to be wiped out and I could use your help… Wait what's that?,84,88,2.4
+dialogue12,2.31,2,Folar,You,They come from the dark areas of the world and we need to head there to stop them by killing their leader… Watch out!,84,88,2.4
+dialogue13,2.4,3,Ghost,You,I see you're having fun killing my minions… You will regret doing so when we meet.,108,88,2.5
+dialogue14,2.5,2,Folar,You,That's their leader! RUN!,84,88,-1

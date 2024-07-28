@@ -17,6 +17,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private GameObject SpeakerText;
     [SerializeField]
+    private GameObject ListenerImage;
+    [SerializeField]
+    private GameObject ListenerText;
+    [SerializeField]
     private GameObject dialogueText;
     [SerializeField]
     private GameObject choiceButton1;
@@ -28,6 +32,7 @@ public class DialogueManager : MonoBehaviour
     private GameObject cb2Text;
     [SerializeField]
     private GameObject nextButton;
+    
 
     [SerializeField]
     private DialogueSO currentDialogue;
@@ -54,6 +59,8 @@ public class DialogueManager : MonoBehaviour
             SpeakerImage.GetComponent<Image>().sprite = inputSO.speakerSprite;
             SpeakerText.GetComponent<TextMeshProUGUI>().text = inputSO.speakerName;
             dialogueText.GetComponent<TextMeshProUGUI>().text = inputSO.speakerDialogue;
+            ListenerImage.GetComponent<Image>().sprite = inputSO.listenerSprite;
+            ListenerText.GetComponent<TextMeshProUGUI>().text = inputSO.listenerName;
 
             //Checks if you have a say in whatever the game wants to yap about
             if (inputSO.hasChoice == true)

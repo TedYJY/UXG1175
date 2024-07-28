@@ -18,6 +18,8 @@ MonoBehaviour:
   speakerName: You
   speakerDialogue: Monsters? Where am I?
   speakerSprite: {fileID: -2080483208, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  listenerName: Folar
+  listenerSprite: {fileID: -40774067, guid: c405f86b031d72544a4edc06d728b241, type: 3}
   dialogueChoiceIDs:
   - 1.21
   hasChoice: 0

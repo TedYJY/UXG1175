@@ -11,6 +11,8 @@ public class DialogueSO : ScriptableObject
     public string speakerName;
     public string speakerDialogue;
     public Sprite speakerSprite;
+    public string listenerName;
+    public Sprite listenerSprite;
     public string[] dialogueChoiceIDs;
     public bool hasChoice;
 }

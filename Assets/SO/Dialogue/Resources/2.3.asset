@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5e6452dc93d4344b927fe612d71c7e4, type: 3}
-  m_Name: 1.11
+  m_Name: 2.3
   m_EditorClassIdentifier: 
-  dialogueID: dialogue4
-  dialogueGroupID: 1.11
-  speakerID: 2
-  speakerName: Folar
-  speakerDialogue: "No problem... wait\u2026 Did you hear that? The monsters are
-    coming back for seconds!"
-  speakerSprite: {fileID: -40774067, guid: c405f86b031d72544a4edc06d728b241, type: 3}
-  listenerName: You
-  listenerSprite: {fileID: -2080483208, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  dialogueID: dialogue10
+  dialogueGroupID: 2.3
+  speakerID: 1
+  speakerName: You
+  speakerDialogue: How did these enemies even come about?
+  speakerSprite: {fileID: -2080483208, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  listenerName: Folar
+  listenerSprite: {fileID: -40774067, guid: c405f86b031d72544a4edc06d728b241, type: 3}
   dialogueChoiceIDs:
-  - 1.3
+  - 2.31
   hasChoice: 0

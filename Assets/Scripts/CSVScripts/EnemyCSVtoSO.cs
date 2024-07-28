@@ -30,9 +30,9 @@ public class EnemyCSVtoSO
 
 
             //Checks if all data entries are filled
-            if(splitLines.Length != 8)
+            if(splitLines.Length != 10)
             {
-                Debug.Log(allLines[i] + " does not have all 8 values!");
+                Debug.Log(allLines[i] + " does not have all 10 values!");
 
                 //Returns back if all data entries are not filled for "Mental Stability" purposes
                 return;
@@ -49,6 +49,8 @@ public class EnemyCSVtoSO
             enemy.enemyMoveSpeed = float.Parse(splitLines[4]);
             enemy.enemyRange = float.Parse(splitLines[5]);
             enemy.enemyClass = splitLines[6];
+            enemy.enemyDropChance = float.Parse(splitLines[8]);
+            enemy.enemyExpAmt = int.Parse(splitLines[9]);
 
 
 

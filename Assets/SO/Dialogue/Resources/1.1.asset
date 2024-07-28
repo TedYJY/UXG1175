@@ -18,6 +18,8 @@ MonoBehaviour:
   speakerName: You
   speakerDialogue: "I can't remember\u2026 thanks for getting me out though."
   speakerSprite: {fileID: -2080483208, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  listenerName: Folar
+  listenerSprite: {fileID: -40774067, guid: c405f86b031d72544a4edc06d728b241, type: 3}
   dialogueChoiceIDs:
   - 1.11
   hasChoice: 0

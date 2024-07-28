@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyID: enemy2
   enemyName: Tank
-  enemyHP: 8
+  enemyHP: 70
   enemyDMG: 1
-  enemyMoveSpeed: 1
+  enemyMoveSpeed: 4
   enemyRange: 1
   enemyClass: Melee
   enemySprite: {fileID: 1322458365, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  enemyDropChance: 0.2
+  enemyExpAmt: 2

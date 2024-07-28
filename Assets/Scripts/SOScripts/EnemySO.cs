@@ -13,4 +13,6 @@ public class EnemySO : ScriptableObject
     public float enemyRange;
     public string enemyClass;
     public Sprite enemySprite;
+    public float enemyDropChance;
+    public int enemyExpAmt;
 }
