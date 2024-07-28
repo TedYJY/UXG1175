@@ -41,7 +41,11 @@ public class LevelManager : MonoBehaviour
     public int enemiesRemaining;
 
     public GameObject lastWave;
+    public GameObject youDied;
     public GameObject completion;
+
+    [SerializeField]
+    private GameObject statTracker; //For analytics
 
     void Start()
     {
@@ -67,6 +71,9 @@ public class LevelManager : MonoBehaviour
 
         waveActive = true;
         StartCoroutine(SpawnWaves());
+
+        statTracker = GameObject.FindWithTag("Stats Tracker");
+
     }
 
     IEnumerator SpawnWaves()
@@ -123,22 +130,21 @@ public class LevelManager : MonoBehaviour
             Debug.Log($"Wave {currentWave} Timer: {currentWaveTimer}");
         }
 
-        if (thePlayer != null) 
-        
-        {
-            savedTime = totalElapsedTime;
-        }
-
         enemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;// detect how many enemies in the scene
 
 
 
         if (currentWave >= totalWave && enemiesRemaining == 0 ) //end game condition
         {
+            statTracker.GetComponent<StatsTracker>().totaltimePlayed += totalElapsedTime;
             completion.SetActive(true);
             lastWave.SetActive(false);
             StartCoroutine(waitTimer());
-            SceneManager.LoadScene("EndGame");
+
+            Invoke("EndGame", 3);
+            
+
+            
         }
 
         if (currentWave == totalWave -1)
@@ -152,6 +158,37 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    public void PlayerDied()
+    {
+        foreach (GameObject spawner in GameObject.FindGameObjectsWithTag("Spawn Handler"))
+        {
+            Destroy(spawner);
+        }
+        waveTimer = 10;
+        savedTime = totalElapsedTime;
+        statTracker.GetComponent<StatsTracker>().totaltimePlayed += savedTime;
+        Destroy(statTracker);
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(enemy);
+        }
+
+        Destroy(GameObject.FindWithTag("Player"));
+
+        youDied.SetActive(true);
+
+        Invoke("StartOver", 3);
+    }
+
+    void StartOver()
+    {
+        SceneManager.LoadScene("CharacterSelect");
+    }
+
+    void EndGame()
+    {
+        SceneManager.LoadScene("EndGame");
+    }
     IEnumerator waitTimer()
     {
         yield return new WaitForSeconds(5f);

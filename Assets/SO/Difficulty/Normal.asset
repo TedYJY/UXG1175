@@ -18,4 +18,4 @@ MonoBehaviour:
   maxActiveSpawners: 4
   minActiveSpawners: 2
   numberOfWaves: 15
-  waveTimer: 20
+  waveTimer: 15

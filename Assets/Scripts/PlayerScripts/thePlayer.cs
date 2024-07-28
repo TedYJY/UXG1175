@@ -77,10 +77,19 @@ public class thePlayer : MonoBehaviour
     public float cooldownDuration;
     public bool canFire;
 
+    //For analytics
+    private GameObject statTracker;
+
+    private GameObject levelManager;
+
 
     void Start()
     {
-        
+
+        statTracker = GameObject.FindWithTag("Stats Tracker");
+
+        levelManager = GameObject.FindWithTag("Level Manager");
+
         rb = GetComponent<Rigidbody2D>();
         
 
@@ -88,6 +97,19 @@ public class thePlayer : MonoBehaviour
 
         characters = charList[selectedCharacterIndex]; //getting data from selectced character
 
+        switch (selectedCharacterIndex)
+        {
+            case 0:
+                statTracker.GetComponent<StatsTracker>().timesChosenChar1 += 1;
+                break;
+
+            case 1:
+                statTracker.GetComponent<StatsTracker>().timesChosenChar2 += 1;
+                break;
+
+            default:
+                break;
+        }
 
         
 
@@ -110,6 +132,8 @@ public class thePlayer : MonoBehaviour
         canFire = true; //ensureing player can always fire on start of game
         cooldownDuration = 3; //Ensures player isn't able to fire twice at the start of the game
         playerLevel = startingLevel; //ensurs player level is set to default
+
+        
         
     }
 
@@ -195,13 +219,18 @@ public class thePlayer : MonoBehaviour
 
     public void TakeDamage(int atkDamage) //for enemies to call to damage player
     {
+        if (statTracker != null)
+        {
+            statTracker.GetComponent<StatsTracker>().totalDMGtaken += atkDamage;
+        }
+        
+
         hp -= atkDamage;
 
         if (hp <= 0)
         {
-            //End Game
-            Destroy(this.gameObject);
-            SceneManager.LoadScene("CharacterSelect");
+            hp = 0;
+            levelManager.GetComponent<LevelManager>().PlayerDied();
         }
     }
 
@@ -232,7 +261,7 @@ public class thePlayer : MonoBehaviour
 
                 ItemFunctions(itemID); // send to excute functions
 
-                Debug.Log("Item picked up");
+                //Debug.Log("Item picked up");
             }
 
             else if (theItem.tag == "Weapon")
@@ -250,12 +279,12 @@ public class thePlayer : MonoBehaviour
 
                 ItemFunctions(itemID);
 
-                Debug.Log("Weapon picked up");
+                //Debug.Log("Weapon picked up");
             }
 
             else
             {
-                Debug.Log("cant find");
+                //Debug.Log("cant find");
             }
 
 
@@ -279,19 +308,19 @@ public class thePlayer : MonoBehaviour
             if (type == "health")
             {
                 hp += itemValue;
-                Debug.Log("healed");
+                //Debug.Log("healed");
 
                 if (hp > maxHP)  // enable cap to ensure hp does not exceed
                 {
                     hp = maxHP;
                 }
-                Debug.Log("healed");
+                //Debug.Log("healed");
 
             }
             else if (type == "speed") //update player speed
             {
                 StartCoroutine(HandleSpeedPotion(itemValue, itemDuration));
-                Debug.Log("speed enabled");
+                //Debug.Log("speed enabled");
             }
        }
 

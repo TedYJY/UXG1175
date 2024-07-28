@@ -12,6 +12,8 @@ TagManager:
   - mapBounds
   - normalItems
   - DropsManager
+  - Stats Tracker
+  - Level Manager
   layers:
   - Default
   - TransparentFX

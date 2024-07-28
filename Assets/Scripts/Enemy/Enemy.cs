@@ -21,9 +21,7 @@ public class Enemy : MonoBehaviour
     public int expAmt; //Amount of exp for enemy
 
     [SerializeField]
-    private GameObject enemyProjectile;
-
-
+    private GameObject enemyProjectile; //For ranged enemies
 
     [Header("Searching Variables")]
     [SerializeField]
@@ -65,6 +63,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private DropChanceManager dropChanceManager; //For drop chance
 
+    [SerializeField]
+    private GameObject statTracker; //For analytics
+
     void Start()
     {
         StartMovement(); //Starts roaming or moving to player
@@ -72,7 +73,7 @@ public class Enemy : MonoBehaviour
         this.GetComponent<CircleCollider2D>().radius = atkRange; //Adjust range of their trigger for attack range
         dropChanceManager = GameObject.FindWithTag("DropsManager").GetComponent<DropChanceManager>(); //To allocate the GameObject of the drop chance manager
         attackCooldownTimer = attackCooldownRanged - 1; ; // To allow mages to fire at the start of the game
-        
+        statTracker = GameObject.FindWithTag("Stats Tracker"); //Finds the stat tracker within the game
     }
 
     void Update()
@@ -235,10 +236,16 @@ public class Enemy : MonoBehaviour
             {
                 case "Melee":
                     player.GetComponent<thePlayer>().AddToXP(1);
+                    statTracker.GetComponent<StatsTracker>().totalEnemiesKilled += 1;
+                    statTracker.GetComponent<StatsTracker>().meleeEnemiesKilled += 1;
+                    statTracker.GetComponent<StatsTracker>().totalEXPEarned += 1;
                     break;
 
                 case "Ranged":
                     player.GetComponent<thePlayer>().AddToXP(2);
+                    statTracker.GetComponent<StatsTracker>().totalEnemiesKilled += 1;
+                    statTracker.GetComponent<StatsTracker>().rangedEnemiesKilled += 1;
+                    statTracker.GetComponent<StatsTracker>().totalEXPEarned += 2;
                     break;
 
                 default:
@@ -246,6 +253,8 @@ public class Enemy : MonoBehaviour
             }
 
             DropItem(); //Attempts to drop an item
+
+            statTracker.GetComponent<StatsTracker>().totalDMGgiven += damage;
 
             //Destroys enemy (Or sends to object pool) (To drown.)
             Destroy(this.gameObject);

@@ -8,7 +8,6 @@ public class CSVtoSO : MonoBehaviour
 {
     private static string weaponCSVPath = "/CSVs/WeaponCSVs.csv"; // tell editor where file is
     private static string potionsCSVPath = "/CSVs/ItemsCSV.csv";
-    private static string spritesPath = "/Sprites/tilemap_packed.png";
     private static string difficultyPath = "/CSVs/DifficultyLevelCSVs.csv";
     private static string characterPath = "/CSVs/PlayerTemplate.csv";
 

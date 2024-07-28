@@ -41,16 +41,20 @@ public class cameraMovement : MonoBehaviour
 
     public void LateUpdate()
     {
-        if (transform.position != targetPosition) 
+        if (target != null)
         {
-            Vector3 targetPosition = new Vector3 (target.position.x, target.position.y, -8.8f);
-           
-            targetPosition.x = Mathf.Clamp(targetPosition.x,min.x,max.x); //setting clamp for bounds
-            targetPosition.y = Mathf.Clamp(targetPosition.y,min.y,max.y);
+            if (transform.position != targetPosition)
+            {
+                Vector3 targetPosition = new Vector3(target.position.x, target.position.y, -8.8f);
 
-            transform.position = Vector3.Lerp(transform.position,targetPosition, smooth); 
+                targetPosition.x = Mathf.Clamp(targetPosition.x, min.x, max.x); //setting clamp for bounds
+                targetPosition.y = Mathf.Clamp(targetPosition.y, min.y, max.y);
 
-          
+                transform.position = Vector3.Lerp(transform.position, targetPosition, smooth);
+
+
+            }
         }
+
     }
 }

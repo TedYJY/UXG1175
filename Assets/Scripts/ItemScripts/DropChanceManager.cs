@@ -46,7 +46,7 @@ public class DropChanceManager : MonoBehaviour
 
     public void DropItem(Vector3 position)
     {
-        Debug.Log("Dropping Item!");
+        //Debug.Log("Dropping Item!");
         temp = DropChanceList[Random.Range(0, DropChanceList.Count)];
         toSpawn = Resources.Load<GameObject>(temp);
 

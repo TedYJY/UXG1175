@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// By Ryan Jacob
+// Written By: Ryan Jacob && Tedmund Yap
 public class LevelSelection : MonoBehaviour
 {
     //references
@@ -13,11 +13,15 @@ public class LevelSelection : MonoBehaviour
     public int levelIndex; //set to default
     public int selectedIndex;
 
+    [SerializeField]
+    private GameObject statTracker; //For analytics
+
     // Start is called before the first frame update
 
     public void Start()
     {
         selectedIndex = 0;
+        statTracker = GameObject.FindWithTag("Stats Tracker");
     }
 
     public void LoadLevel(int levelIndex) // set index under the button UI
@@ -33,10 +37,13 @@ public class LevelSelection : MonoBehaviour
         if (selectedIndex == 0)
         {
             SceneManager.LoadScene("GameScene1");
+            statTracker.GetComponent<StatsTracker>().timesChosenMap1 += 1;
+
         }
         else
         {
             SceneManager.LoadScene("GameScene2");
+            statTracker.GetComponent<StatsTracker>().timesChosenMap2 += 1;
         }
 
 
