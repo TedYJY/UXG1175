@@ -163,16 +163,16 @@ public class thePlayer : MonoBehaviour
     private IEnumerator weaponCoolDown() //cool down method
     {
         canFire = false;
-        Debug.Log("Weapon cooldown started");
+        //Debug.Log("Weapon cooldown started");
         yield return new WaitForSeconds(cooldownDuration); 
         canFire = true;
-        Debug.Log("Weapon cooldown ended");
+        //Debug.Log("Weapon cooldown ended");
     }
 
     void FireProjectile() 
     {
 
-        Debug.Log("Firing projectile");
+        //Debug.Log("Firing projectile");
 
         GameObject projectileInstance = Instantiate(defaultWeapon, transform.position, Quaternion.identity);  // instantiate the projectile at the player's position
 

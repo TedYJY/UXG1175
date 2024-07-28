@@ -62,11 +62,15 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Image healthBar; //For health bar UI
 
+    [SerializeField]
+    private DropChanceManager dropChanceManager; //For drop chance
+
     void Start()
     {
         StartMovement(); //Starts roaming or moving to player
         player = GameObject.FindWithTag("Player"); //Moves to player
         this.GetComponent<CircleCollider2D>().radius = atkRange;
+        dropChanceManager = GameObject.FindWithTag("DropsManager").GetComponent<DropChanceManager>();
         
     }
 
@@ -188,7 +192,7 @@ public class Enemy : MonoBehaviour
                 attackCooldownTimer = 0; //Starts cooldown
             }
 
-            if (Vector2.Distance(transform.position, player.transform.position) <= searchRadius / 1.4f)
+            if (Vector2.Distance(transform.position, player.transform.position) <= searchRadius / 1.7f)
             {
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -1 * moveSpeed * Time.deltaTime); //For ranged units to start running when the player approaches them because... I would also run if someone ran at me with flying knives
             }
@@ -252,11 +256,11 @@ public class Enemy : MonoBehaviour
     void DropItem()
     {
         float percentageChance = dropChance * 100;
-        int random = Random.Range(0, 100);
+        int random = Random.Range(0, 101);
 
         if (random <= percentageChance)
         {
-            Instantiate(healthBar, transform.position, transform.rotation);
+            dropChanceManager.DropItem(this.gameObject.transform.position);
         }
 
     }

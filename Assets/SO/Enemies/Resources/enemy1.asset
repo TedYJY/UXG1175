@@ -20,5 +20,5 @@ MonoBehaviour:
   enemyRange: 1
   enemyClass: Melee
   enemySprite: {fileID: -943592342, guid: c405f86b031d72544a4edc06d728b241, type: 3}
-  enemyDropChance: 0.1
+  enemyDropChance: 1
   enemyExpAmt: 1

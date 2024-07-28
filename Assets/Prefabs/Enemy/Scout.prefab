@@ -269,6 +269,7 @@ MonoBehaviour:
   maxYRoam: 13
   roamRadius: 1.5
   healthBar: {fileID: 704540444242444918}
+  dropChanceManager: {fileID: 0}
 --- !u!58 &8572445714224348406
 CircleCollider2D:
   m_ObjectHideFlags: 0

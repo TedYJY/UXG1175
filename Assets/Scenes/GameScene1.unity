@@ -786,6 +786,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5b0353dc86da3e41ab043a64ada529f, type: 3}
+--- !u!1 &1206871246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1206871247}
+  - component: {fileID: 1206871248}
+  m_Layer: 0
+  m_Name: DropsManager
+  m_TagString: DropsManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1206871247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206871246}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.7023945, y: -3.1366656, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1206871248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206871246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d509b42dbcc72ba4cad07105dbe97c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropChanceList: []
+  toSpawn: {fileID: 0}
+  temp: 
 --- !u!1 &1386335552 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2073643225284112486, guid: cceac485e16d19648853b6f09c66aa64, type: 3}
@@ -14219,7 +14266,11 @@ PrefabInstance:
       value: -1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8615652380683432193, guid: 7f4ea164543365345be744dac4514a81, type: 3}
+    - {fileID: 4140556613211691463, guid: 7f4ea164543365345be744dac4514a81, type: 3}
+    - {fileID: 7701354587895956913, guid: 7f4ea164543365345be744dac4514a81, type: 3}
+    - {fileID: 3098290162641877520, guid: 7f4ea164543365345be744dac4514a81, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f4ea164543365345be744dac4514a81, type: 3}
@@ -14491,3 +14542,4 @@ SceneRoots:
   - {fileID: 547576758}
   - {fileID: 1722471464}
   - {fileID: 2074227695}
+  - {fileID: 1206871247}

@@ -38,7 +38,7 @@ public class DialogueCSVtoSO : MonoBehaviour
                 return;
             }
 
-            //Creates new Scriptable Object by referencing to EnemySO script
+            //Creates new Scriptable Object by referencing to DialogueSO script
             DialogueSO dialogueSO = ScriptableObject.CreateInstance<DialogueSO>();
 
             //Passes data from CSV into the SO
@@ -63,7 +63,7 @@ public class DialogueCSVtoSO : MonoBehaviour
             dialogueSO.listenerSprite = sprites[int.Parse(splitLines[7])];
 
             //Creates a new SO using AssetDatabase CreateAsset function
-            //Ensure that there is a folder under Assets labelled "Enemies", else an error will show up
+            //Ensure that there is a folder under Assets labelled "Dialogue", else an error will show up
             AssetDatabase.CreateAsset(dialogueSO, $"Assets/SO/Dialogue/Resources/{splitLines[1]}.asset");
         }
 

@@ -20,5 +20,5 @@ MonoBehaviour:
   enemyRange: 10
   enemyClass: Ranged
   enemySprite: {fileID: -1780371570, guid: c405f86b031d72544a4edc06d728b241, type: 3}
-  enemyDropChance: 0.3
+  enemyDropChance: 0.5
   enemyExpAmt: 2
