@@ -122,7 +122,16 @@ public class DialogueManager : MonoBehaviour
         //Loads the character select scene because I wanna play the game now.
         else
         {
-            SceneManager.LoadScene(1);
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                SceneManager.LoadScene(1);
+            }
+
+            else if (SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                SceneManager.LoadScene(5);
+            }
+            
         }
 
     }

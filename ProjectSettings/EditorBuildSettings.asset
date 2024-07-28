@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 120d1ea8f7f097e42aca537c8ecbd8d1
+  - enabled: 1
+    path: Assets/Scenes/Analytics.unity
+    guid: b6698359a57863f4a9d08ed5c41055d0
   m_configObjects: {}
