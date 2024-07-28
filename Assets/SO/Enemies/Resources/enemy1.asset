@@ -16,9 +16,9 @@ MonoBehaviour:
   enemyName: Scout
   enemyHP: 10
   enemyDMG: 1
-  enemyMoveSpeed: 5
+  enemyMoveSpeed: 2.5
   enemyRange: 1
   enemyClass: Melee
   enemySprite: {fileID: -943592342, guid: c405f86b031d72544a4edc06d728b241, type: 3}
-  enemyDropChance: 1
+  enemyDropChance: 0.05
   enemyExpAmt: 1

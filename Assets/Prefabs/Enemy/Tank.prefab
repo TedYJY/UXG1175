@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
-  moveSpeed: 4
+  moveSpeed: 2
   atkDamage: 1
   health: 70
   atkRange: 1

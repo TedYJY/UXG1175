@@ -55,9 +55,9 @@ public class Enemy : MonoBehaviour
 
     private bool movementAllowed; //If enemy is able to move
 
-    private float attackCooldownTimer = 3f; //Base cooldown amount for enemies
+    private float attackCooldownTimer = 1f; //Counts up for cooldown management
     private float attackCooldownMelee = 1.0f; //Additional cooldown timer for melee units
-    private float attackCooldownRanged = 3f; //Addtional cooldown timer for ranged units
+    private float attackCooldownRanged = 5f; //Addtional cooldown timer for ranged units
 
     [SerializeField]
     private Image healthBar; //For health bar UI
@@ -69,8 +69,9 @@ public class Enemy : MonoBehaviour
     {
         StartMovement(); //Starts roaming or moving to player
         player = GameObject.FindWithTag("Player"); //Moves to player
-        this.GetComponent<CircleCollider2D>().radius = atkRange;
-        dropChanceManager = GameObject.FindWithTag("DropsManager").GetComponent<DropChanceManager>();
+        this.GetComponent<CircleCollider2D>().radius = atkRange; //Adjust range of their trigger for attack range
+        dropChanceManager = GameObject.FindWithTag("DropsManager").GetComponent<DropChanceManager>(); //To allocate the GameObject of the drop chance manager
+        attackCooldownTimer = attackCooldownRanged - 1; ; // To allow mages to fire at the start of the game
         
     }
 

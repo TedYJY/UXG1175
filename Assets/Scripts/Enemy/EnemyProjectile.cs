@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity;
+using UnityEditor;
+using UnityEngine.Rendering;
 using static UnityEngine.GraphicsBuffer;
 
+//Written by: Tedmund Yap
 public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField]

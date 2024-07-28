@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 250
-  projectileSpeed: 5
+  projectileSpeed: 3.5
   colorChangeSpeed: 0.6
   destination: {x: 0, y: 0, z: 0}
   projectileDamage: 0

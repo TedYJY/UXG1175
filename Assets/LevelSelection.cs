@@ -24,7 +24,7 @@ public class LevelSelection : MonoBehaviour
     {
        
         selectedIndex = levelIndex;
-        Debug.Log(selectedIndex);
+        //Debug.Log(selectedIndex);
 
     }
 

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d644e52d23df8d74ebeccf003124e621, type: 3}
-  m_Name: enemy3
+  m_Name: enemy5
   m_EditorClassIdentifier: 
-  enemyID: enemy3
-  enemyName: Mage
-  enemyHP: 40
-  enemyDMG: 3
-  enemyMoveSpeed: 2.5
-  enemyRange: 10
-  enemyClass: Ranged
-  enemySprite: {fileID: -1780371570, guid: c405f86b031d72544a4edc06d728b241, type: 3}
-  enemyDropChance: 0.15
-  enemyExpAmt: 2
+  enemyID: enemy5
+  enemyName: Bat
+  enemyHP: 20
+  enemyDMG: 1
+  enemyMoveSpeed: 3
+  enemyRange: 1
+  enemyClass: Melee
+  enemySprite: {fileID: 54668477, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  enemyDropChance: 0.05
+  enemyExpAmt: 1

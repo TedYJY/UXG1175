@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d644e52d23df8d74ebeccf003124e621, type: 3}
-  m_Name: enemy3
+  m_Name: enemy6
   m_EditorClassIdentifier: 
-  enemyID: enemy3
-  enemyName: Mage
-  enemyHP: 40
+  enemyID: enemy6
+  enemyName: Spider
+  enemyHP: 60
   enemyDMG: 3
-  enemyMoveSpeed: 2.5
-  enemyRange: 10
+  enemyMoveSpeed: 1
+  enemyRange: 7
   enemyClass: Ranged
-  enemySprite: {fileID: -1780371570, guid: c405f86b031d72544a4edc06d728b241, type: 3}
-  enemyDropChance: 0.15
+  enemySprite: {fileID: 1152202096, guid: c405f86b031d72544a4edc06d728b241, type: 3}
+  enemyDropChance: 0.4
   enemyExpAmt: 2

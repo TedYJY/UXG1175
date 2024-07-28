@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 //Written by: Tedmund Yap
 public class EnemyWaveHandler : MonoBehaviour
@@ -14,7 +16,7 @@ public class EnemyWaveHandler : MonoBehaviour
     [SerializeField]
     private GameObject spawnHandler;
     private EnemySpawner spawner;
-    public int lvl = 1;
+    public int lvl;
 
     private string[][] currentlvl;
     private List<string[]> lvl1 = new List<string[]>();
@@ -26,6 +28,20 @@ public class EnemyWaveHandler : MonoBehaviour
 
     void Awake()
     {
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case 2:
+                lvl = 1;
+                break;
+
+            case 3:
+                lvl = 2;
+                break;
+
+            default:
+                break;
+        }
+
         string[] allLines = File.ReadAllLines(Application.dataPath + CSVpath);
 
         //Loops through the String of allLines, skipping past first and last line (First line is the headers, bottom line CSV leaves a blank line by default)

@@ -144,6 +144,10 @@ public class LevelManager : MonoBehaviour
         if (currentWave == totalWave -1)
         {
             lastWave.SetActive(true);
+            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+            {
+                enemy.GetComponent<Enemy>().foundPlayer = true;
+            }
         }
 
     }
