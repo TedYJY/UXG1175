@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 2060867111, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
+  m_Sprite: {fileID: 1899925713, guid: 7f4ee9f967c7bb340b8ad432c01b9fe5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
-  weaponDamage: 5
+  weaponDamage: 10
 --- !u!61 &377232339147602362
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a05e9e07dd5c1a4b81cfd16639f41aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons: {fileID: 11400000, guid: bd35459be4cc2094797478f7b83d40b4, type: 2}
+  weapons: {fileID: 11400000, guid: bec57c17347a3ed4dbf33e8fde3d0cab, type: 2}
   meleeWeaponsList:
   - {fileID: 11400000, guid: 0edf0e1e3a8f17f48ae5329dc7485abc, type: 2}
   - {fileID: 11400000, guid: dd5d1d5a5e54ab34e829c9142d216922, type: 2}
@@ -231,4 +231,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bd35459be4cc2094797478f7b83d40b4, type: 2}
   theSprite: {fileID: 1219502146961026285}
   isAccessed: 0
-  thisWeaponDamage: 5
+  thisWeaponDamage: 10

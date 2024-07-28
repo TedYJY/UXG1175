@@ -343,6 +343,7 @@ public class thePlayer : MonoBehaviour
         if (currentExp >= expToLevelUp) // if it hits level cap, level up and increment level cap and hp
         {
             startingLevel++; // increase level
+           
 
             while (currentExp >= expToLevelUp && startingLevel < maxLevel)
             {
@@ -354,7 +355,7 @@ public class thePlayer : MonoBehaviour
                 hp += (int)(healthCapIncrement * expMultiplier);
 
                 expToLevelUp += expIncrement; //update exp to level up
-
+                currentExp = 0; //reset exp to 0
                 DefaultWeaponScript defaultWeaponScript = defaultWeapon.GetComponent<DefaultWeaponScript>(); //call level up default weapon method in default weapon script 
                 defaultWeaponScript.Player = this.gameObject;
                 defaultWeaponScript.LevelUpDefaultWeapon(); //pass to defaultweapon script

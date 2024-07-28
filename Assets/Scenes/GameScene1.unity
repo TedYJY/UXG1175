@@ -14721,6 +14721,14 @@ PrefabInstance:
       propertyPath: completion
       value: 
       objectReference: {fileID: 212399387}
+    - target: {fileID: 6351066897437137630, guid: e76db8c5c7cc72d4eb719def974f78d0, type: 3}
+      propertyPath: difficultyList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ee525818f84ae4a4ebba6da8ccccc7c1, type: 2}
+    - target: {fileID: 6351066897437137630, guid: e76db8c5c7cc72d4eb719def974f78d0, type: 3}
+      propertyPath: difficultyList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 612495f07a2799349ae5d4ab60041e4f, type: 2}
     - target: {fileID: 8022536399109063393, guid: e76db8c5c7cc72d4eb719def974f78d0, type: 3}
       propertyPath: m_Name
       value: LevelManager
