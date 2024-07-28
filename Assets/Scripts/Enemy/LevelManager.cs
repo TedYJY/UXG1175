@@ -82,7 +82,7 @@ public class LevelManager : MonoBehaviour
             for (int i = 0; i < theWavePointsToSpawn; i++)
             {
                 SpawnRandomPoints();
-                yield return new WaitForSeconds(spawnDelay); // Optional delay between each spawner spawn
+                yield return new WaitForSeconds(spawnDelay); // wait for timer to run out
                 
 
             }
@@ -113,7 +113,7 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-        elapsedTime += Time.deltaTime; // Accumulate time in float
+        elapsedTime += Time.deltaTime; // elasped time in game
         totalElapsedTime = (int)elapsedTime; //timer to keep track of play time
 
 
@@ -129,11 +129,11 @@ public class LevelManager : MonoBehaviour
             savedTime = totalElapsedTime;
         }
 
-        enemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;//detect how many enemies in the scene
+        enemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;// detect how many enemies in the scene
 
 
 
-        if (currentWave >= totalWave && enemiesRemaining == 0 )
+        if (currentWave >= totalWave && enemiesRemaining == 0 ) //end game condition
         {
             completion.SetActive(true);
             lastWave.SetActive(false);

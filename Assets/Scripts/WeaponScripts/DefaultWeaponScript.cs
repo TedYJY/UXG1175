@@ -43,8 +43,6 @@ public class DefaultWeaponScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        //ResetInc(); // abit jank
 
         isLevelingUp = false;
 
@@ -82,7 +80,7 @@ public class DefaultWeaponScript : MonoBehaviour
 
         if (isLevelingUp)
         {
-            //applyUpgrade();
+            
             isLevelingUp = false; // Prevent continuous upgrades
         }
 
@@ -135,29 +133,6 @@ public class DefaultWeaponScript : MonoBehaviour
         spInc = 0;
         cdInc = 0;
     }
-
-
-    /* public void ApplyUpgrade()
-     {
-         Debug.Log("Applying Upgrades");
-         // Applying the increments
-         damage += dmgInc;
-         speed += spInc;
-         defaultCooldown += cdInc;
-
-         // Access the sprite renderer and update color
-         SpriteRenderer spriteRenderer = theSprite.GetComponent<SpriteRenderer>();
-         if (spriteRenderer != null)
-         {
-             Color currentColor = spriteRenderer.color;
-             currentColor.r = Mathf.Clamp(currentColor.r + 0.1f, 0, 1); // Increase red component
-             spriteRenderer.color = currentColor;
-         }
-         else
-         {
-             Debug.LogError("SpriteRenderer component is missing on theSprite.");
-         }
-     }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

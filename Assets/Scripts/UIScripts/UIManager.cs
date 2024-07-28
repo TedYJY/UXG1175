@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
 
         if (minutes > 0) //convert to minutes and seconds
         {
-            timeText.text = string.Format("Time Elapsed: {0}mins,{1}seconds", minutes, seconds);
+            timeText.text = string.Format("Time Elapsed: {0} mins, {1} seconds", minutes, seconds);
         }
         else // keep seconds if play time is below a minute
         {
