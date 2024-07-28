@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &78371398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5964217036278836488, guid: b4bfed6d799b4ce40a18c8469a567c36, type: 3}
+  m_PrefabInstance: {fileID: 6050639824668659258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &163877789 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1782895303232448194, guid: b4bfed6d799b4ce40a18c8469a567c36, type: 3}
@@ -476,7 +481,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3505590805474703677, guid: c9f67dbda75b08e479f454625e21acf3, type: 3}
   m_PrefabInstance: {fileID: 496288825752976665}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494903707}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 898eb5d88c8bd6b44a8600b6f8ceabb2, type: 3}
@@ -572,7 +577,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -746,7 +751,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -773,7 +778,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -842,10 +847,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1211048049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1aeb7671f1b0e44e83b36114f83ff93, type: 3}
+  m_Script: {fileID: 11500000, guid: 40eed339a7a8ea048a8f2b745554db2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playButton: {fileID: 1494903707}
+  playButton: {fileID: 78371398}
   levelIndex: 0
   selectedIndex: 0
 --- !u!4 &1211048051
@@ -867,11 +872,6 @@ Transform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8177535015823205390, guid: b4bfed6d799b4ce40a18c8469a567c36, type: 3}
   m_PrefabInstance: {fileID: 6050639824668659258}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1494903707 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5477360646073566675, guid: c9f67dbda75b08e479f454625e21acf3, type: 3}
-  m_PrefabInstance: {fileID: 496288825752976665}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1669573066
 GameObject:

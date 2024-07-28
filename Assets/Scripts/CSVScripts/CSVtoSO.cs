@@ -93,7 +93,7 @@ public class CSVtoSO : MonoBehaviour
     public static Sprite getSprite(int spriteID) // to pull the sprites from sheet
     {
        
-        Sprite[] sprites = Resources.LoadAll<Sprite>(spritesPath); // tell program to load all sprites into array
+        Sprite[] sprites = Resources.LoadAll<Sprite>("tilemap_packed"); // tell program to load all sprites into array
 
         string spriteToAssign = $"tilemap_packed_{spriteID}"; // tell program to identify using ID
 

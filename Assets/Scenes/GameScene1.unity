@@ -1676,6 +1676,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5536420871236663218, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 752.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536420871236663218, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 72.2488
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536420871236663218, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 424.46997
+      objectReference: {fileID: 0}
     - target: {fileID: 6140332577391082097, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
       propertyPath: thePlayer
       value: 

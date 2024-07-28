@@ -149,5 +149,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 59cccdda0d4791e46bece59d2c79bbb6, type: 2}
   - {fileID: 11400000, guid: 1a3279dd23da94947b8acdc7e0ef1a4c, type: 2}
   - {fileID: 11400000, guid: a611eac79e83aa845bd0a52caa08a254, type: 2}
-  target: {x: 14.396099, y: -7.7044005}
+  target: {x: 16.302633, y: -8.551294}
   projectileDamage: 15
