@@ -137,6 +137,7 @@ public class LevelManager : MonoBehaviour
         if (currentWave >= totalWave && enemiesRemaining == 0 ) //end game condition
         {
             statTracker.GetComponent<StatsTracker>().totaltimePlayed += totalElapsedTime;
+            statTracker.GetComponent<StatsTracker>().OverwriteCSV();
             completion.SetActive(true);
             lastWave.SetActive(false);
             StartCoroutine(waitTimer());
@@ -167,7 +168,7 @@ public class LevelManager : MonoBehaviour
         waveTimer = 10;
         savedTime = totalElapsedTime;
         statTracker.GetComponent<StatsTracker>().totaltimePlayed += savedTime;
-        Destroy(statTracker);
+        statTracker.GetComponent<StatsTracker>().OverwriteCSV();
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             Destroy(enemy);
@@ -182,6 +183,7 @@ public class LevelManager : MonoBehaviour
 
     void StartOver()
     {
+        Destroy(statTracker);
         SceneManager.LoadScene("CharacterSelect");
     }
 
