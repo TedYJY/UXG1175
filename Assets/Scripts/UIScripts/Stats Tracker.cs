@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using UnityEditor;
-using UnityEditor.Rendering;
 
 //Written By: Tedmund Yap
 public class StatsTracker : MonoBehaviour
@@ -25,11 +23,13 @@ public class StatsTracker : MonoBehaviour
 
     private void Awake()
     {
-        filename = Application.dataPath + "/CSVs/Analytics.csv";
+        filename = Application.persistentDataPath + "/Analytics.csv";
 
         try
         {
-            string[] allLines = File.ReadAllLines(Application.dataPath + "/CSVs/Analytics.csv");
+            string[] allLines = File.ReadAllLines(Application.persistentDataPath + "/Analytics.csv");
+
+            Debug.Log(Application.persistentDataPath);
 
             if (allLines == null)
             {

@@ -170,7 +170,8 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(spawner);
         }
-        waveTimer = 10;
+
+        StopAllCoroutines();    
         savedTime = totalElapsedTime;
         statTracker.GetComponent<StatsTracker>().totaltimePlayed += savedTime;
         statTracker.GetComponent<StatsTracker>().OverwriteCSV();
@@ -194,7 +195,7 @@ public class LevelManager : MonoBehaviour
     void StartOver()
     {
         Destroy(statTracker);
-        SceneManager.LoadScene("CharacterSelect");
+        SceneManager.LoadScene("Analytics");
     }
 
     void EndGame()

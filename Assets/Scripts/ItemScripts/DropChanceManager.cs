@@ -7,7 +7,7 @@ using System.IO;
 //Written by: Tedmund Yap
 public class DropChanceManager : MonoBehaviour
 {
-    private static string CSVpath = "/CSVs/ItemDropChance.csv";
+    private static string CSVpath = "/ItemDropChance.csv";
     public List<string> DropChanceList = new List<string>();
 
     public GameObject toSpawn;
@@ -17,7 +17,7 @@ public class DropChanceManager : MonoBehaviour
     {
         //Uses ReadAllLines function to seperate CSV based on rows
         //Uses Application.dataPath to ensure that the CSV can be found regardless on project folder location
-        string[] allLines = File.ReadAllLines(Application.dataPath + CSVpath);
+        string[] allLines = File.ReadAllLines(Application.streamingAssetsPath + CSVpath);
 
         //Loops through the String of allLines, skipping past first and last line (First line is the headers, bottom line CSV leaves a blank line by default)
         for (int i = 1; i < allLines.Length; i++)

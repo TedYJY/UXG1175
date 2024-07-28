@@ -1,3 +1,0 @@
-characterID,characterName,movementSpeed,health,maxHealth,startingLevel,maxLevel,startingExp,currentExp,expToLevelUp,expMultiplier,spriteID
-101,Bruiser,6,50,50,1,10,0,0,80,0.2,112
-102,Wreched,8,30,30,1,10,0,0,50,0.1,88

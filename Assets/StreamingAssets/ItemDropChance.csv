@@ -1,0 +1,15 @@
+﻿dropChanceID,itemID,dropChance
+drop1,3001,15
+drop2,3002,10
+drop3,3003,4.5
+drop4,3004,3
+drop5,3005,2.5
+drop6,4001,15
+drop7,4002,10
+drop8,4003,5
+drop9,1101,10
+drop10,1102,7.5
+drop11,1103,2.5
+drop12,1201,5
+drop13,1202,7.5
+drop14,1203,2.5

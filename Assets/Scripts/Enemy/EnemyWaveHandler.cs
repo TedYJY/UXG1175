@@ -11,7 +11,7 @@ using Unity.VisualScripting;
 public class EnemyWaveHandler : MonoBehaviour
 {
     //References to enemyWaves CSV to get data
-    private static string CSVpath = "/CSVs/enemyWaves.csv";
+    private static string CSVpath = "/enemyWaves.csv";
 
     [SerializeField]
     private GameObject spawnHandler;
@@ -42,7 +42,7 @@ public class EnemyWaveHandler : MonoBehaviour
                 break;
         }
 
-        string[] allLines = File.ReadAllLines(Application.dataPath + CSVpath);
+        string[] allLines = File.ReadAllLines(Application.streamingAssetsPath + CSVpath);
 
         //Loops through the String of allLines, skipping past first and last line (First line is the headers, bottom line CSV leaves a blank line by default)
         for (int i = 1; i < allLines.Length; i++)

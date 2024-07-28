@@ -6,10 +6,10 @@ using Unity.VisualScripting;
 //Written by Ryan Jacob
 public class CSVtoSO : MonoBehaviour
 {
-    private static string weaponCSVPath = "/CSVs/WeaponCSVs.csv"; // tell editor where file is
-    private static string potionsCSVPath = "/CSVs/ItemsCSV.csv";
-    private static string difficultyPath = "/CSVs/DifficultyLevelCSVs.csv";
-    private static string characterPath = "/CSVs/PlayerTemplate.csv";
+    private static string weaponCSVPath = "/WeaponCSVs.csv"; // tell editor where file is
+    private static string potionsCSVPath = "/ItemsCSV.csv";
+    private static string difficultyPath = "/DifficultyLevelCSVs.csv";
+    private static string characterPath = "/PlayerTemplate.csv";
 
 
     [MenuItem("Utilities/Generate Weapon")] // creates utility bar top of unity window weapon creator
@@ -17,7 +17,7 @@ public class CSVtoSO : MonoBehaviour
 
     {
 
-        string[] allLines = File.ReadAllLines(Application.dataPath + weaponCSVPath); // telling program where the file is on the PC
+        string[] allLines = File.ReadAllLines(Application.streamingAssetsPath + weaponCSVPath); // telling program where the file is on the PC
 
         if (allLines == null)
         {
@@ -58,7 +58,7 @@ public class CSVtoSO : MonoBehaviour
     {
        
         //Generating Potions
-        string[] allLines = File.ReadAllLines(Application.dataPath + potionsCSVPath); // telling program where the file is on the PC
+        string[] allLines = File.ReadAllLines(Application.streamingAssetsPath + potionsCSVPath); // telling program where the file is on the PC
 
         if (allLines == null)
         {
@@ -117,7 +117,7 @@ public class CSVtoSO : MonoBehaviour
     {
         
         //Generating difficulty
-        string[] allLines = File.ReadAllLines(Application.dataPath + difficultyPath); // telling program where the file is on the PC
+        string[] allLines = File.ReadAllLines(Application.streamingAssetsPath + difficultyPath); // telling program where the file is on the PC
 
         if (allLines == null)
         {
@@ -154,7 +154,7 @@ public class CSVtoSO : MonoBehaviour
     {
 
         //Generating difficulty
-        string[] allLines = File.ReadAllLines(Application.dataPath + characterPath); // telling program where the file is on the PC
+        string[] allLines = File.ReadAllLines(Application.streamingAssetsPath + characterPath); // telling program where the file is on the PC
 
         if (allLines == null)
         {

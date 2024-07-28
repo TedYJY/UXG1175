@@ -7,7 +7,7 @@ using System.IO;
 //Written by: Tedmund Yap
 public class DialogueCSVtoSO : MonoBehaviour
 {
-    private static string CSVpath = "/CSVs/Dialogue.csv";
+    private static string CSVpath = "Dialogue.csv";
 
     //Adds Menu Item to the Inspector Window to allow generation of new enemies
     [MenuItem("Utilities/Generate Dialogue")]
@@ -16,7 +16,7 @@ public class DialogueCSVtoSO : MonoBehaviour
     {
         //Uses ReadAllLines function to seperate CSV based on rows
         //Uses Application.dataPath to ensure that the CSV can be found regardless on project folder location
-        string[] allLines = File.ReadAllLines(Application.dataPath + CSVpath);
+        string[] allLines = File.ReadAllLines(Application.streamingAssetsPath + CSVpath);
 
         //Uses resources.load to get the entire spritesheet
         Sprite[] sprites = Resources.LoadAll<Sprite>("tilemap_packed");

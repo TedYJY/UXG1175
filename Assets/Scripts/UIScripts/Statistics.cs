@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity;
 using TMPro;
 using System.IO;
 using UnityEngine.SceneManagement;
@@ -33,7 +34,7 @@ public class Statistics : MonoBehaviour
     private void Awake()
     {
 
-            string[] allLines = File.ReadAllLines(Application.dataPath + "/CSVs/Analytics.csv");
+            string[] allLines = File.ReadAllLines(Application.persistentDataPath + "/Analytics.csv");
 
             if (allLines == null)
             {

@@ -7,7 +7,7 @@ public class EnemyCSVtoSO
 {
     //String path for the CSV for enemies
     //Follow naming conventions, else errors show up
-    private static string CSVpath = "/CSVs/enemyData.csv";
+    private static string CSVpath = "/enemyData.csv";
 
     //Adds Menu Item to the Inspector Window to allow generation of new enemies
     [MenuItem("Utilities/Generate Enemies")]
@@ -16,8 +16,8 @@ public class EnemyCSVtoSO
     {
         //Uses ReadAllLines function to seperate CSV based on rows
         //Uses Application.dataPath to ensure that the CSV can be found regardless on project folder location
-        string[] allLines = File.ReadAllLines(Application.dataPath + CSVpath);
-
+        //string[] allLines = File.ReadAllLines(Application.streamingAssetsPath + CSVpath);
+        string[] allLines = File.ReadAllLines(Application.streamingAssetsPath + CSVpath);
         //Uses resources.load to get the entire spritesheet
         Sprite[] sprites = Resources.LoadAll<Sprite>("tilemap_packed");
 
