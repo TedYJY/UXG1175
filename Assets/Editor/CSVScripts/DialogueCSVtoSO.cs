@@ -7,7 +7,7 @@ using System.IO;
 //Written by: Tedmund Yap
 public class DialogueCSVtoSO : MonoBehaviour
 {
-    private static string CSVpath = "Dialogue.csv";
+    private static string CSVpath = "/Dialogue.csv";
 
     //Adds Menu Item to the Inspector Window to allow generation of new enemies
     [MenuItem("Utilities/Generate Dialogue")]
