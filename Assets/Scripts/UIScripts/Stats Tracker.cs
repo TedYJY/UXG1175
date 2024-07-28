@@ -29,7 +29,7 @@ public class StatsTracker : MonoBehaviour
         {
             string[] allLines = File.ReadAllLines(Application.persistentDataPath + "/Analytics.csv");
 
-            Debug.Log(Application.persistentDataPath);
+            //Debug.Log(Application.persistentDataPath);
 
             if (allLines == null)
             {

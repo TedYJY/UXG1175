@@ -66,6 +66,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject statTracker; //For analytics
 
+    private float healthUI = 1;
+
     void Start()
     {
         StartMovement(); //Starts roaming or moving to player
@@ -221,10 +223,15 @@ public class Enemy : MonoBehaviour
     {
         foundPlayer = true; //For roaming enemies
 
-        health -= damage;
+        
+        healthUI -= (damage / health);
+
+        Debug.Log(healthUI);
 
         //Updates UI for health bar
-        healthBar.fillAmount = health / 100f; //Assume that base HP of enemies have to be above 10 and below 100 or else the UI will glitch out
+        healthBar.fillAmount = healthUI; //Assume that base HP of enemies have to be above 10 and below 100 or else the UI will glitch out
+
+        health -= damage;
 
         if (health <= 0)
         {

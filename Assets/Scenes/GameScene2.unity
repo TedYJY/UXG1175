@@ -2937,6 +2937,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4194532860018535025, guid: d5b0353dc86da3e41ab043a64ada529f, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6483183310554536047, guid: d5b0353dc86da3e41ab043a64ada529f, type: 3}
       propertyPath: m_Name
       value: Mage
@@ -24356,6 +24360,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 892914375643984147, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 563.1659
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858051335311646781, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 490.1659
+      objectReference: {fileID: 0}
     - target: {fileID: 4112308127088681471, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -24451,6 +24463,10 @@ PrefabInstance:
     - target: {fileID: 5536420871236663218, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 596
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981402282918996950, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 631
       objectReference: {fileID: 0}
     - target: {fileID: 6140332577391082097, guid: b422f62c42ba87a42a0498c2cd6dea04, type: 3}
       propertyPath: thePlayer
