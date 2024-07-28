@@ -21,7 +21,7 @@ public class StatsTracker : MonoBehaviour
     public int meleeEnemiesKilled;
     public int rangedEnemiesKilled;
     public int totalEXPEarned;
-    private bool timeSpedUp;
+    
 
     private void Awake()
     {
@@ -80,18 +80,9 @@ public class StatsTracker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (timeSpedUp == false)
-            {
-                Time.timeScale *= 10;
-                timeSpedUp = true;
-            }
-
-            else
-            {
-                Time.timeScale = 1;
-                timeSpedUp = false;
-            }
+            SpeedUpTime();
         }
+
     }
 
     public void OverwriteCSV()
@@ -100,6 +91,18 @@ public class StatsTracker : MonoBehaviour
         tw.WriteLine("Times Chosen Character 1, Times Chosen Character 2, Times Chosen Map 1, Times Chosen Map 2, Total Time Played, Total Damage Taken, Total Damage Dealt, Total Enemies Killed, Melee Enemies Killed, Ranged Enemies Killed, Total EXP Earned");
         tw.WriteLine(timesChosenChar1.ToString() + "," + timesChosenChar2.ToString() + "," + timesChosenMap1.ToString() + "," + timesChosenMap2.ToString() + "," + totaltimePlayed.ToString() + "," + totalDMGtaken.ToString() + "," + totalDMGgiven.ToString() + "," + totalEnemiesKilled.ToString() + "," + meleeEnemiesKilled.ToString() + "," + rangedEnemiesKilled.ToString() + "," + totalEXPEarned.ToString());
         tw.Close();
+    }
+
+    public void SpeedUpTime()
+    {
+        if (Time.timeScale > 1) 
+        {
+            Time.timeScale = 1;
+        }
+        else
+        {
+            Time.timeScale = 7;
+        }
     }
 
 }

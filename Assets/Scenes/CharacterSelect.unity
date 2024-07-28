@@ -196,6 +196,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &164815791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2108933416434427141, guid: 499b738ec8f7d154d8d8a7158e032591, type: 3}
+  m_PrefabInstance: {fileID: 151978500}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &173848273
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +915,7 @@ MonoBehaviour:
   playButton: {fileID: 78371398}
   levelIndex: 0
   selectedIndex: 0
-  statTracker: {fileID: 0}
+  statTracker: {fileID: 164815791}
 --- !u!4 &1211048051
 Transform:
   m_ObjectHideFlags: 0

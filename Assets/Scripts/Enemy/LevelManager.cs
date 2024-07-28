@@ -142,6 +142,11 @@ public class LevelManager : MonoBehaviour
             lastWave.SetActive(false);
             StartCoroutine(waitTimer());
 
+            if (Time.timeScale > 1 ) //reset time
+            {
+                Time.timeScale = 1;
+            }
+
             Invoke("EndGame", 3);
             
 
@@ -177,6 +182,11 @@ public class LevelManager : MonoBehaviour
         Destroy(GameObject.FindWithTag("Player"));
 
         youDied.SetActive(true);
+
+        if (Time.timeScale > 1) //reset time
+        {
+            Time.timeScale = 1;
+        }
 
         Invoke("StartOver", 3);
     }
